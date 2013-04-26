@@ -13,7 +13,7 @@ const char* StateLengthError::what() const throw()
  *
  *******************************************************************************/
  
-StateVector StateVector::operator+(const StateVector arg)
+StateVector StateVector::operator+(const StateVector& arg)
 {
 	if(arg.size() != this->size())
 		throw StateLengthError();
@@ -26,7 +26,7 @@ StateVector StateVector::operator+(const StateVector arg)
 	return result;
 }
 
-StateVector StateVector::operator-(const StateVector arg)
+StateVector StateVector::operator-(const StateVector& arg)
 {
 	if(arg.size() != this->size())
 		throw StateLengthError();
@@ -39,7 +39,7 @@ StateVector StateVector::operator-(const StateVector arg)
 	return result;
 }
 
-StateVector StateVector::operator*(const double arg)
+StateVector StateVector::operator*(double arg)
 {	
 	int i;
 	StateVector result;
@@ -49,7 +49,7 @@ StateVector StateVector::operator*(const double arg)
 	return result;
 }
 
-StateVector operator*(const double arg, const StateVector arg2)
+StateVector operator*(double arg, const StateVector& arg2)
 {	
 	int i;
 	StateVector result;
@@ -59,7 +59,7 @@ StateVector operator*(const double arg, const StateVector arg2)
 	return result;
 }
 
-StateVector StateVector::operator/(const double arg)
+StateVector StateVector::operator/(double arg)
 {	
 	int i;
 	StateVector result;
@@ -79,10 +79,6 @@ Integrator::Integrator(double t0, double stepSize)
 {
 	t = t0;
 	this->stepSize = stepSize;
-}
-
-Integrator::~Integrator()
-{
 }
 
 void Integrator::setStepSize(double step)

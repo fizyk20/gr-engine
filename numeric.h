@@ -24,11 +24,11 @@ public:
 class StateVector : public vector<double>
 {
 public:
-	StateVector operator+(const StateVector);
-	StateVector operator-(const StateVector);
-	StateVector operator*(const double);
-	friend StateVector operator*(const double, const StateVector);
-	StateVector operator/(const double);
+	StateVector operator+(const StateVector&);
+	StateVector operator-(const StateVector&);
+	StateVector operator*(double);
+	friend StateVector operator*(double, const StateVector&);
+	StateVector operator/(double);
 };
 
 /*! \class DiffEq
@@ -56,7 +56,7 @@ protected:
 	StateVector currentState;
 public:
 	Integrator(double t0 = 0.0, double stepSize = 0.01);
-	~Integrator();
+	virtual ~Integrator() {}
 	
 	virtual StateVector next(double step = 0.0) = 0;
 	
