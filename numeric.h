@@ -39,7 +39,7 @@ class DiffEq
 {
 public:
 	DiffEq() {}
-	virtual ~DiffEq() = 0;
+	virtual ~DiffEq() {}
 	
 	virtual StateVector derivative(double t, StateVector v) = 0;
 };
