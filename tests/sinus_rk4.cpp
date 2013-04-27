@@ -1,4 +1,4 @@
-#include "../numeric.h"
+#include "../rk4integrator.h"
 #include <iostream>
 #include <fstream>
 using namespace std;

@@ -67,16 +67,5 @@ public:
 	double getT();
 };
 
-/*! \class RK4Integrator
- * \brief Class implementing an RK4 numerical integrator.
- */
-class RK4Integrator : public Integrator
-{
-public:
-	RK4Integrator(double t0 = 0.0, double stepSize = 0.01);
-	~RK4Integrator();
-	StateVector next(double step = 0.0);
-};
-
 #endif
 
