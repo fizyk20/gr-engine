@@ -17,50 +17,42 @@ const char* StateLengthError::what() const throw()
 
 /*******************************************************************************
  *
- *  StateVector class implementation
+ *  StateVector operators implementation
  *
  *******************************************************************************/
  
-StateVector::StateVector()
+StateVector operator+(const StateVector& arg1, const StateVector& arg2)
 {
-}
-
-StateVector::~StateVector()
-{
-} 
- 
-StateVector StateVector::operator+(const StateVector& arg)
-{
-	if(arg.size() != this->size())
+	if(arg1.size() != arg2.size())
 		throw StateLengthError();
 		
 	int i;
 	StateVector result;
-	for(i = 0; i < this->size(); i++)
-		result.push_back((*this)[i] + arg[i]);
+	for(i = 0; i < arg1.size(); i++)
+		result.push_back(arg1[i] + arg2[i]);
 		
 	return result;
 }
 
-StateVector StateVector::operator-(const StateVector& arg)
+StateVector operator-(const StateVector& arg1, const StateVector& arg2)
 {
-	if(arg.size() != this->size())
+	if(arg1.size() != arg2.size())
 		throw StateLengthError();
 		
 	int i;
 	StateVector result;
-	for(i = 0; i < this->size(); i++)
-		result.push_back((*this)[i] - arg[i]);
+	for(i = 0; i < arg1.size(); i++)
+		result.push_back(arg1[i] - arg2[i]);
 		
 	return result;
 }
 
-StateVector StateVector::operator*(double arg)
+StateVector operator*(const StateVector& arg1, double arg2)
 {	
 	int i;
 	StateVector result;
-	for(i = 0; i < this->size(); i++)
-		result.push_back((*this)[i]*arg);
+	for(i = 0; i < arg1.size(); i++)
+		result.push_back(arg1[i]*arg2);
 		
 	return result;
 }
@@ -75,12 +67,12 @@ StateVector operator*(double arg, const StateVector& arg2)
 	return result;
 }
 
-StateVector StateVector::operator/(double arg)
+StateVector operator/(const StateVector& arg1, double arg2)
 {	
 	int i;
 	StateVector result;
-	for(i = 0; i < this->size(); i++)
-		result.push_back((*this)[i]/arg);
+	for(i = 0; i < arg1.size(); i++)
+		result.push_back(arg1[i]/arg2);
 		
 	return result;
 }

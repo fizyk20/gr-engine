@@ -7,12 +7,11 @@
 
 #include <vector>
 #include <exception>
-using namespace std;
 
 /*! \class StateLengthError
  * \brief An exception class thrown when there is a state vector length mismatch
  */
-class StateLengthError : public exception
+class StateLengthError : public std::exception
 {
 public:
 	StateLengthError();
@@ -20,20 +19,14 @@ public:
 	const char* what() const throw();
 };
 
-/*! \class StateVector
- * \brief State vector class - basically a vector<double> with addition, subtraction and multiplication by doubles
- */
-class StateVector : public vector<double>
-{
-public:
-	StateVector();
-	virtual ~StateVector();
-	StateVector operator+(const StateVector&);
-	StateVector operator-(const StateVector&);
-	StateVector operator*(double);
-	friend StateVector operator*(double, const StateVector&);
-	StateVector operator/(double);
-};
+/** \typedef StateVector - alias for std::vector<double> */
+typedef std::vector<double> StateVector;
+
+StateVector operator+(const StateVector&, const StateVector&);
+StateVector operator-(const StateVector&, const StateVector&);
+StateVector operator*(const StateVector&, double);
+StateVector operator*(double, const StateVector&);
+StateVector operator/(const StateVector&, double);
 
 /*! \class DiffEq
  * \brief Base class for implementing differential equations.
