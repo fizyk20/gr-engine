@@ -1,5 +1,13 @@
 #include "numeric.h"
 
+StateLengthError::StateLengthError()
+{
+}
+
+StateLengthError::~StateLengthError() throw()
+{
+}
+
 // StateLengthError "what" method
 
 const char* StateLengthError::what() const throw()
@@ -12,6 +20,14 @@ const char* StateLengthError::what() const throw()
  *  StateVector class implementation
  *
  *******************************************************************************/
+ 
+StateVector::StateVector()
+{
+}
+
+StateVector::~StateVector()
+{
+} 
  
 StateVector StateVector::operator+(const StateVector& arg)
 {
@@ -71,6 +87,20 @@ StateVector StateVector::operator/(double arg)
 
 /*******************************************************************************
  *
+ *  DiffEq class implementation
+ *
+ *******************************************************************************/
+ 
+DiffEq::DiffEq()
+{
+}
+
+DiffEq::~DiffEq()
+{
+}
+
+/*******************************************************************************
+ *
  *  Integrator class implementation
  *
  *******************************************************************************/
@@ -79,6 +109,10 @@ Integrator::Integrator(double t0, double stepSize)
 {
 	t = t0;
 	this->stepSize = stepSize;
+}
+
+Integrator::~Integrator()
+{
 }
 
 void Integrator::setStepSize(double step)
@@ -121,7 +155,16 @@ double Integrator::getT()
  *  RK4Integrator class implementation
  *
  *******************************************************************************/
- 
+
+RK4Integrator::RK4Integrator(double t0, double stepSize)
+	: Integrator(t0, stepSize)
+{
+}
+
+RK4Integrator::~RK4Integrator()
+{
+}
+
 StateVector RK4Integrator::next(double step)
 {
 	double h;

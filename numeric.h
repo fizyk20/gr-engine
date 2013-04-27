@@ -15,6 +15,8 @@ using namespace std;
 class StateLengthError : public exception
 {
 public:
+	StateLengthError();
+	virtual ~StateLengthError() throw();
 	const char* what() const throw();
 };
 
@@ -24,6 +26,8 @@ public:
 class StateVector : public vector<double>
 {
 public:
+	StateVector();
+	virtual ~StateVector();
 	StateVector operator+(const StateVector&);
 	StateVector operator-(const StateVector&);
 	StateVector operator*(double);
@@ -38,8 +42,8 @@ public:
 class DiffEq
 {
 public:
-	DiffEq() {}
-	virtual ~DiffEq() {}
+	DiffEq();
+	virtual ~DiffEq();
 	
 	virtual StateVector derivative(double t, StateVector v) = 0;
 };
@@ -56,7 +60,7 @@ protected:
 	StateVector currentState;
 public:
 	Integrator(double t0 = 0.0, double stepSize = 0.01);
-	virtual ~Integrator() {}
+	virtual ~Integrator();
 	
 	virtual StateVector next(double step = 0.0) = 0;
 	
@@ -76,6 +80,8 @@ public:
 class RK4Integrator : public Integrator
 {
 public:
+	RK4Integrator(double t0 = 0.0, double stepSize = 0.01);
+	~RK4Integrator();
 	StateVector next(double step = 0.0);
 };
 
