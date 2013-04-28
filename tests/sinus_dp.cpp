@@ -1,4 +1,4 @@
-#include "../rk4integrator.h"
+#include "../dpintegrator.h"
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -19,7 +19,7 @@ class sinus_test : public DiffEq
 int main()
 {
     sinus_test eq;
-    RK4Integrator integrator;
+    DPIntegrator integrator(0.001);
     
     StateVector state0;
     state0.push_back(0.0);
@@ -29,12 +29,12 @@ int main()
     integrator.setState(state0);
     
     int i;
-    ofstream fout("test.dat");
+    ofstream fout("test_dp.dat");
     for(i=0; i<400; i++)
     {
     	StateVector v = integrator.getState();
-    	cout << "x = " << v[0] << "       v = " << v[1] << "       x^2 + v^2 = " << v[0]*v[0] + v[1]*v[1] << endl;
-    	fout << integrator.getT() << "\t" << v[0] << "\t" << v[1] << endl;
+    	cout << "step = " << integrator.getStepSize() << "   x = " << v[0] << "   v = " << v[1] << "   x^2 + v^2 = " << v[0]*v[0] + v[1]*v[1] << endl;
+    	fout << integrator.getT() << "\t" << v[0] << "\t" << v[1] << "\t" << endl;
     	integrator.next(&eq);
     }
     fout.close();
