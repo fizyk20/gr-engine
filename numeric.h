@@ -27,6 +27,7 @@ StateVector operator-(const StateVector&, const StateVector&);
 StateVector operator*(const StateVector&, double);
 StateVector operator*(double, const StateVector&);
 StateVector operator/(const StateVector&, double);
+double abs(StateVector);
 
 /*! \class DiffEq
  * \brief Base class for implementing differential equations.
@@ -49,16 +50,14 @@ class Integrator
 protected:
 	double t;
 	double stepSize;
-	DiffEq* equation;
 	StateVector currentState;
 public:
-	Integrator(double t0 = 0.0, double stepSize = 0.01);
+	Integrator(double stepSize = 0.01, double t0 = 0.0);
 	virtual ~Integrator();
 	
-	virtual StateVector next(double step = 0.0) = 0;
+	virtual StateVector next(DiffEq* equation, double step = 0.0) = 0;
 	
 	void setStepSize(double);
-	void setDiffEquation(DiffEq*);
 	void setState(StateVector);
 	void setT(double);
 	

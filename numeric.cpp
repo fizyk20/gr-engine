@@ -1,4 +1,5 @@
 #include "numeric.h"
+#include <math.h>
 
 StateLengthError::StateLengthError()
 {
@@ -77,6 +78,16 @@ StateVector operator/(const StateVector& arg1, double arg2)
 	return result;
 }
 
+double abs(StateVector arg)
+{
+	int i;
+	double result = 0.0;
+	for(i = 0; i < arg.size(); i++)
+		result += arg[i]*arg[i];
+		
+	return sqrt(result);
+}
+
 /*******************************************************************************
  *
  *  DiffEq class implementation
@@ -97,7 +108,7 @@ DiffEq::~DiffEq()
  *
  *******************************************************************************/
  
-Integrator::Integrator(double t0, double stepSize)
+Integrator::Integrator(double stepSize, double t0)
 {
 	t = t0;
 	this->stepSize = stepSize;
@@ -110,11 +121,6 @@ Integrator::~Integrator()
 void Integrator::setStepSize(double step)
 {
 	stepSize = step;
-}
-
-void Integrator::setDiffEquation(DiffEq* eq)
-{
-	equation = eq;
 }
 
 void Integrator::setState(StateVector v)
