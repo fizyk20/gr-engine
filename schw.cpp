@@ -59,6 +59,25 @@ void SchwManifold::setMass(double _M)
 	M = _M;
 }
 
+int SchwManifold::recommendCoordSystem(Point p)
+{
+	double l;
+	switch(p.getCoordSystem())
+	{
+	case SchwManifold::EF:
+		if(p[2] < 0.5) return SchwManifold::NearPole0;
+		else if(p[2] > 2.642) return SchwManifold::NearPolePi;
+		else return SchwManifold::EF;
+		break;
+	case SchwManifold::NearPole0:
+	case SchwManifold::NearPolePi:
+		l = p[2]*p[2] + p[3]*p[3];
+		if(l > 0.07) return SchwManifold::EF;
+		else return p.getCoordSystem();
+		break;
+	}
+}
+
 /*
  * Metric in Eddington-Finkelstein coordinates
  */

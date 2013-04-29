@@ -21,6 +21,8 @@ public:
 	
 	double getMass();
 	void setMass(double _M);
+	
+	int recommendCoordSystem(Point);
 };
 
 /*! \class EFMetric

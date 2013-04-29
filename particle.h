@@ -19,13 +19,20 @@ protected:
 	vector4 u;
 	Manifold* m;
 	
-	virtual StateVector constructState();
-	virtual void setState(StateVector);
+	StateVector constructState();
+	void setState(StateVector);
+	Point getPosFromState(StateVector);
+	vector4 getVelFromState(StateVector);
+	
+	Integrator* integrator;
 public:
 	Particle(Manifold*);
 	Particle(Manifold*, Point, vector4);
 	virtual ~Particle();
 	
+	void setIntegrator(Integrator*);
+	
+	StateVector derivative(double t, StateVector v);
 	void propagate(double step = 0.0);
 	
 	int getCoordSystem();

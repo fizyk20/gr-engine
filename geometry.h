@@ -140,6 +140,8 @@ public:
 	Metric* getMetric(int);
 	Point convertPointTo(Point, int);	//convert point to coordinates
 	vector4 convertVectorTo(vector4, Point, int);	//convert vector to coordinates
+	
+	virtual int recommendCoordSystem(Point); //return the best coordinate system to use in a point
 };
 
 #endif

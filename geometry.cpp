@@ -381,3 +381,8 @@ vector4 Manifold::convertVectorTo(vector4 v, Point p, int system)
 	
 	return result;
 }
+
+int Manifold::recommendCoordSystem(Point p)
+{
+	return p.getCoordSystem(); 	//trivial implementation
+}
