@@ -71,7 +71,7 @@ class CoordinateConversion
 {
 public:
 	CoordinateConversion();
-	virtual ~CoordinateConversion() = 0;
+	virtual ~CoordinateConversion();
 	
 	virtual Point convertPoint(Point) = 0;
 	virtual double jacobian(int, int, Point) = 0;
@@ -113,7 +113,7 @@ protected:
 	virtual double _christoffel(int, int, int, Point) = 0;
 public:
 	Metric(int cS);
-	virtual ~Metric() = 0;
+	virtual ~Metric();
 	
 	double g(int, int, Point);
 	double invg(int, int, Point);
@@ -134,7 +134,7 @@ protected:
 	Metric** metrics;
 public:
 	Manifold();
-	virtual ~Manifold() = 0;
+	virtual ~Manifold();
 	
 	CoordinateConversion* getConversion(int, int);	//returns conversion from i to j
 	Metric* getMetric(int);

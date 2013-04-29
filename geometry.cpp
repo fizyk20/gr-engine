@@ -203,6 +203,10 @@ CoordinateConversion::CoordinateConversion()
 {
 }
 
+CoordinateConversion::~CoordinateConversion()
+{
+}
+
 /*
  * IdentityConversion
  */
@@ -237,6 +241,10 @@ double IdentityConversion::inv_jacobian(int i, int j, Point)
 Metric::Metric(int cS)
 {
 	coordSystem = cS;
+}
+
+Metric::~Metric()
+{
 }
 
 double Metric::dg(int i, int j, int k, Point p)
@@ -339,6 +347,10 @@ Manifold
 Manifold* gManifold = NULL;
 
 Manifold::Manifold()
+{
+}
+
+Manifold::~Manifold()
 {
 }
 

@@ -73,10 +73,12 @@ void Particle::setState(StateVector v)
 
 Point Particle::getPosFromState(StateVector v)
 {
-	Point p;
+	Point p1(p.getCoordSystem());
 	int i;
 	for(i = 0; i < 4; i++)
-		p[i] = v[2*i];
+		p1[i] = v[2*i];
+		
+	return p1;
 }
 
 vector4 Particle::getVelFromState(StateVector v)
@@ -85,6 +87,8 @@ vector4 Particle::getVelFromState(StateVector v)
 	int i;
 	for(i = 0; i < 4; i++)
 		v1[i] = v[2*i+1];
+		
+	return v1;
 }
 
 void Particle::setIntegrator(Integrator* i)
@@ -113,8 +117,8 @@ StateVector Particle::derivative(double t, StateVector v)
 	Point p1 = getPosFromState(v);
 	vector4 u1 = getVelFromState(v);
 	
-	Metric* metric = m->getMetric(p.getCoordSystem());
-	vector4 du = vector4() - metric->christoffel(u1, u1, p1);
+	Metric* metric = m -> getMetric(p.getCoordSystem());
+	vector4 du = vector4() - metric -> christoffel(u1, u1, p1);
 	
 	StateVector result;
 	int i;
