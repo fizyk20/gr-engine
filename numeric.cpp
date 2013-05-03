@@ -108,10 +108,10 @@ DiffEq::~DiffEq()
  *
  *******************************************************************************/
  
-Integrator::Integrator(double stepSize, double t0)
+Integrator::Integrator(double stepSize)
 {
-	t = t0;
 	this->stepSize = stepSize;
+	initStepSize = stepSize;
 }
 
 Integrator::~Integrator()
@@ -123,28 +123,13 @@ void Integrator::setStepSize(double step)
 	stepSize = step;
 }
 
-void Integrator::setState(StateVector v)
+void Integrator::resetStepSize()
 {
-	currentState = v;
-}
-
-void Integrator::setT(double t)
-{
-	this->t = t;
+	stepSize = initStepSize;
 }
 
 double Integrator::getStepSize()
 {
 	return stepSize;
-}
-
-StateVector Integrator::getState()
-{
-	return currentState;
-}
-
-double Integrator::getT()
-{
-	return t;
 }
 

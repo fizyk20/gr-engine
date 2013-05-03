@@ -32,7 +32,7 @@ public:
 	
 	void setIntegrator(Integrator*);
 	
-	StateVector derivative(double t, StateVector v);
+	StateVector derivative(StateVector v);
 	void propagate(double step = 0.0);
 	
 	int getCoordSystem();

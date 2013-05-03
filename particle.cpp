@@ -94,25 +94,23 @@ vector4 Particle::getVelFromState(StateVector v)
 void Particle::setIntegrator(Integrator* i)
 {
 	integrator = i;
-	integrator -> setState(constructState());
 }
 
 void Particle::propagate(double dt)
 {
 	if(!integrator) throw "Integrator not set!";
 	
-	setState(integrator -> next(this, dt));
+	setState(integrator -> next(constructState(), this, dt));
 	
 	int newCoordSystem = m->recommendCoordSystem(p);
 	if(newCoordSystem != p.getCoordSystem())
 	{
 		u = m->convertVectorTo(u, p, newCoordSystem);
 		p = m->convertPointTo(p, newCoordSystem);
-		integrator -> setState(constructState());
 	}
 }
 
-StateVector Particle::derivative(double t, StateVector v)
+StateVector Particle::derivative(StateVector v)
 {
 	Point p1 = getPosFromState(v);
 	vector4 u1 = getVelFromState(v);

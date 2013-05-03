@@ -18,11 +18,10 @@ class DPIntegrator : public Integrator
 	
 	StateVector lastDerivative, lastState;
 	DiffEq* lastEq;
-	double lastT;
 public:
-	DPIntegrator(double maxErr = 0.000001, double stepSize = 0.01, double t0 = 0.0);
+	DPIntegrator(double maxErr = 0.000001, double stepSize = 0.01);
 	~DPIntegrator();
-	StateVector next(DiffEq* equation, double step = 0.0);
+	StateVector next(StateVector state, DiffEq* equation, double step = 0.0);
 	
 	double getMaxErr();
 	double getMinStep();

@@ -13,9 +13,9 @@
 class RK4Integrator : public Integrator
 {
 public:
-	RK4Integrator(double stepSize = 0.01, double t0 = 0.0);
+	RK4Integrator(double stepSize = 0.01);
 	~RK4Integrator();
-	StateVector next(DiffEq* equation, double step = 0.0);
+	StateVector next(StateVector state, DiffEq* equation, double step = 0.0);
 };
 
 #endif

@@ -39,7 +39,7 @@ public:
 	DiffEq();
 	virtual ~DiffEq();
 	
-	virtual StateVector derivative(double t, StateVector v) = 0;
+	virtual StateVector derivative(StateVector v) = 0;
 };
 
 /*! \class Integrator
@@ -48,22 +48,18 @@ public:
 class Integrator
 {
 protected:
-	double t;
 	double stepSize;
-	StateVector currentState;
+	double initStepSize;
 public:
-	Integrator(double stepSize = 0.01, double t0 = 0.0);
+	Integrator(double stepSize = 0.01);
 	virtual ~Integrator();
 	
-	virtual StateVector next(DiffEq* equation, double step = 0.0) = 0;
+	virtual StateVector next(StateVector state, DiffEq* equation, double step = 0.0) = 0;
 	
 	void setStepSize(double);
-	void setState(StateVector);
-	void setT(double);
+	void resetStepSize();
 	
 	double getStepSize();
-	StateVector getState();
-	double getT();
 };
 
 #endif
