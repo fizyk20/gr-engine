@@ -25,6 +25,15 @@ int Particle::getCoordSystem()
 	return p.getCoordSystem();
 }
 
+void Particle::setCoordSystem(int sys)
+{
+	if(sys != p.getCoordSystem())
+	{
+		u = m->convertVectorTo(u, p, sys);
+		p = m->convertPointTo(p, sys);
+	}
+}
+
 Point Particle::getPos()
 {
 	return p;
@@ -103,11 +112,7 @@ void Particle::propagate(double dt)
 	setState(integrator -> next(constructState(), this, dt));
 	
 	int newCoordSystem = m->recommendCoordSystem(p);
-	if(newCoordSystem != p.getCoordSystem())
-	{
-		u = m->convertVectorTo(u, p, newCoordSystem);
-		p = m->convertPointTo(p, newCoordSystem);
-	}
+	setCoordSystem(newCoordSystem);
 }
 
 StateVector Particle::derivative(StateVector v)
