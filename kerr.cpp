@@ -1,9 +1,10 @@
-#include "schw.h"
+#include "kerr.h"
 #include <math.h>
 
-SchwManifold::SchwManifold(double _M)
+KerrManifold::KerrManifold(double _M, double _a)
 {
 	M = _M;
+	a = _a;
 	
 	gManifold = this;
 	Point::setGlobalManifold(this);
@@ -31,7 +32,7 @@ SchwManifold::SchwManifold(double _M)
 	conversions[NearPolePi][NearPole0] = new NearPoleToNearPole;
 }
 
-SchwManifold::~SchwManifold()
+KerrManifold::~KerrManifold()
 {
 	int i,j;
 	for(i=0; i<nCoordSystems; i++)
@@ -48,30 +49,40 @@ SchwManifold::~SchwManifold()
 	
 	nCoordSystems = 0;
 }
-
-double SchwManifold::getMass()
+	
+double KerrManifold::getMass()
 {
 	return M;
 }
 
-void SchwManifold::setMass(double _M)
+double KerrManifold::getAngMomentum()
+{
+	return a;
+}
+
+void KerrManifold::setMass(double _M)
 {
 	M = _M;
 }
 
-int SchwManifold::recommendCoordSystem(Point p)
+void KerrManifold::setAngMomentum(double _a)
+{
+	a = _a;
+}
+	
+int recommendCoordSystem(Point p)
 {
 	double l;
 	switch(p.getCoordSystem())
 	{
-	case SchwManifold::EF:
-		if(p[2] < 0.5) return SchwManifold::NearPole0;
-		else if(p[2] > 2.642) return SchwManifold::NearPolePi;
-		else return SchwManifold::EF;
-	case SchwManifold::NearPole0:
-	case SchwManifold::NearPolePi:
+	case KerrManifold::EF:
+		if(p[2] < 0.5) return KerrManifold::NearPole0;
+		else if(p[2] > 2.642) return KerrManifold::NearPolePi;
+		else return KerrManifold::EF;
+	case KerrManifold::NearPole0:
+	case KerrManifold::NearPolePi:
 		l = p[2]*p[2] + p[3]*p[3];
-		if(l > 0.07) return SchwManifold::EF;
+		if(l > 0.07) return KerrManifold::EF;
 		else return p.getCoordSystem();
 	}
 }
@@ -79,22 +90,13 @@ int SchwManifold::recommendCoordSystem(Point p)
 /*
  * Metric in Eddington-Finkelstein coordinates
  */
- 
-EFMetric::EFMetric(int cS, SchwManifold* _m)
-	: Metric(cS)
-{ 
-	m = _m;
-}
-
-EFMetric::~EFMetric()
-{
-}
 
 double EFMetric::_g(int i, int j, Point p)
 {
 	Point pos = m->convertPointTo(p, coordSystem);
-	double M;
+	double M,a;
 	M = m->getMass();
+	a = m->getAngMomentum();
 	
 	double r = pos[coordR];
 	double t = pos[coordTheta];
@@ -107,14 +109,18 @@ double EFMetric::_g(int i, int j, Point p)
 		j = k;
 	}
 	
+	double rho2 = r*r + a*a*cos(t)*cos(t);
+	
 	if(i == j)
 	{
-		if(i == coordU) return 1.0-2*M/r;
+		if(i == coordU) return 1.0-2*M*pos[1]/rho2;
 		if(i == coordR) return 0.0;
-		if(i == coordTheta) return -r*r;
-		if(i == coordPhi) return -r*r*sin(t)*sin(t);
+		if(i == coordTheta) return -rho2;
+		if(i == coordPhi) return -(r*r+a*a+2*M*r*a*a*sin(t)*sin(t)/rho2)*sin(t)*sin(t);
 	}
 	if(i == coordU && j == coordR) return -1.0;
+	if(i == coordU && j == coordPhi) return 2*M*r*a*sin(t)*sin(t)/rho2;
+	if(i == coordR && j == coordPhi) return a*sin(t)*sin(t);
 	
 	return 0.0;
 }
@@ -122,11 +128,14 @@ double EFMetric::_g(int i, int j, Point p)
 double EFMetric::_invg(int i, int j, Point p)
 {
 	Point pos = m->convertPointTo(p, coordSystem);
-	double M;
+	double M,a;
 	M = m->getMass();
+	a = m->getAngMomentum();
 	
 	double r = pos[coordR];
 	double t = pos[coordTheta];
+	
+	double rho2 = r*r + a*a*cos(t)*cos(t);
 	
 	if(i>j)	//switch so that i<=j - it's symmetric anyway
 	{
@@ -138,11 +147,17 @@ double EFMetric::_invg(int i, int j, Point p)
 	
 	if(i == j)
 	{
-		if(i == coordR) return -1.0+2*M/r;
-		if(i == coordTheta) return -1.0/r/r;
-		if(i == coordPhi) return -1.0/(r*r*sin(t)*sin(t));
+		if(i == coordU) return -a*a/rho2*sin(t)*sin(t);
+		if(i == coordR)
+		{
+			double delta = r*r-2*M*r+a*a;
+			return -delta/rho2;
+		}
+		if(i == coordTheta) return -1.0/rho2;
+		if(i == coordPhi) return -1.0/(rho2*sin(t)*sin(t));
 	}
-	if(i == coordU && j == coordR) return -1;
+	if(i == coordU && j == coordR) return -(r*r+a*a)/rho2;
+	if((i == coordU && j == coordPhi) || (i == coordR && j == coordPhi)) return -a/rho2;
 	
 	return 0.0;
 }
@@ -161,11 +176,18 @@ double EFMetric::_christoffel(int i, int j, int k, Point p)
 	return result;*/
 	
 	Point pos = m->convertPointTo(p, coordSystem);
-	double M;
+	double M,a;
 	M = m->getMass();
+	a = m->getAngMomentum();
 	
 	double r = pos[coordR];
 	double t = pos[coordTheta];
+	
+	double rho2 = r*r + a*a*cos(t)*cos(t);
+	double rho2x = r*r - a*a*cos(t)*cos(t);
+	double rho4 = rho2*rho2;
+	double rho6 = rho2*rho4;
+	double delta = r*r-2*M*r+a*a;
 	
 	if(j>k)	//switch so that j<=k - it's symmetric anyway
 	{
@@ -178,23 +200,41 @@ double EFMetric::_christoffel(int i, int j, int k, Point p)
 	switch(i)
 	{
 		case coordU:
-			if(j == coordU && k == coordU) return M/r/r;
-			if(j == coordTheta && k == coordTheta) return -r;
-			if(j == coordPhi && k == coordPhi) return -r*sin(t)*sin(t);
+			if(j == coordU && k == coordU) return M*(r*r+a*a)*rho2x/rho6;
+			if(j == coordU && k == coordTheta) return -M*r*a*a*sin(2*t)/rho4;
+			if(j == coordU && k == coordPhi) return -M*a*(r*r+a*a)*rho2x*sin(t)*sin(t)/rho6;
+			if(j == coordR && k == coordTheta) return -a*a*sin(t)*cos(t)/rho2;
+			if(j == coordR && k == coordPhi) return a*r*sin(t)*sin(t)/rho2;
+			if(j == coordTheta && k == coordTheta) return -(r*r+a*a)/rho2*r;
+			if(j == coordTheta && k == coordPhi) return 2*M*r*a*a*a*sin(t)*sin(t)*sin(t)*cos(t)/rho4;
+			if(j == coordPhi && k == coordPhi) return (r*r+a*a)/rho2*(M*rho2x*a*a*sin(t)*sin(t)*sin(t)*sin(t)/rho4-r*sin(t)*sin(t));
 			break;
 		case coordR:
-			if(j == coordU && k == coordU) return M*(1.0-2*M/r)/r/r;
-			if(j == coordU && k == coordR) return -M/r/r;
-			if(j == coordTheta && k == coordTheta) return -(r-2*M);
-			if(j == coordPhi && k == coordPhi) return -(r-2*M)*sin(t)*sin(t);
+			if(j == coordU && k == coordU) return M*rho2x*delta/rho6;
+			if(j == coordU && k == coordR) return -M*rho2x/rho4;
+			if(j == coordU && k == coordPhi) return -M*rho2x*delta*a*sin(t)*sin(t)/rho6;
+			if(j == coordR && k == coordTheta) return -a*a*sin(t)*cos(t)/rho2;
+			if(j == coordR && k == coordPhi) return (r*rho2+M*rho2x)*a*sin(t)*sin(t)/rho4;
+			if(j == coordTheta && k == coordTheta) return -delta/rho2*r;
+			if(j == coordPhi && k == coordPhi) return delta*sin(t)*sin(t)*(M*a*a*rho2x*sin(t)*sin(t)-r*rho4)/rho6;
 			break;
 		case coordTheta:
-			if(j == coordR && k == coordTheta) return 1.0/r;
-			if(j == coordPhi && k == coordPhi) return -sin(t)*cos(t);
+			if(j == coordU && k == coordU) return -2*M*r*a*a*sin(t)*cos(t)/rho6;
+			if(j == coordU && k == coordPhi) return 2*M*r*a*(r*r+a*a)*sin(t)*cos(t)/rho6;
+			if(j == coordR && k == coordTheta) return r/rho2;
+			if(j == coordR && k == coordPhi) return a*sin(t)*cos(t)/rho2;
+			if(j == coordTheta && k == coordTheta) return -a*a*sin(t)*cos(t)/rho2;
+			if(j == coordPhi && k == coordPhi) return -sin(t)*cos(t)*(rho4*(r*r+a*a)+2*M*r*a*a*sin(t)*sin(t)*(r*r+a*a+rho2))/rho6;
 			break;
 		case coordPhi:
-			if(j == coordR && k == coordPhi) return 1.0/r;
-			if(j == coordTheta && k == coordPhi) return cos(t)/sin(t);
+			if(j == coordU && k == coordU) return M*a*rho2x/rho6;
+			if(j == coordU && k == coordTheta) return -2*M*r*a*cos(t)/(rho4*sin(t));
+			if(j == coordU && k == coordPhi) return -M*a*a*rho2x*sin(t)*sin(t)/rho6;
+			if(j == coordR && k == coordTheta) return -a/rho2*cos(t)/sin(t);
+			if(j == coordR && k == coordPhi) return r/rho2;
+			if(j == coordTheta && k == coordTheta) return -a*r/rho2;
+			if(j == coordTheta && k == coordPhi) return cos(t)/sin(t)*(1+2*M*r*a*a*sin(t)*sin(t)/rho4);
+			if(j == coordPhi && k == coordPhi) return a*sin(t)*sin(t)*(M*a*a*rho2x*sin(t)*sin(t)-r*rho4)/rho6;
 			break;
 	}
 	
@@ -204,23 +244,13 @@ double EFMetric::_christoffel(int i, int j, int k, Point p)
 /*
  * Metric in stereographic coordinates
  */
- 
-NearPoleMetric::NearPoleMetric(int cS, SchwManifold* _m)
-	: Metric(cS)
-{
-	m = _m;
-}
-
-NearPoleMetric::~NearPoleMetric()
-{
-}
-
 
 double NearPoleMetric::_g(int i, int j, Point p)
 {
 	Point pos = m->convertPointTo(p, coordSystem);
-	double M;
+	double M,a;
 	M = m->getMass();
+	a = m->getAngMomentum();
 	
 	if(i>j)	//switch so that i<=j - it's symmetric anyway
 	{
@@ -230,19 +260,25 @@ double NearPoleMetric::_g(int i, int j, Point p)
 		j=k;
 	}
 	
-	double r, x, y, alpha2;
+	double rho2, r, x, y, alpha2;
 	r = p[coordR];
 	x = p[coordX];
 	y = p[coordY];
+	rho2 = r*r + a*a*(1.0-x*x-y*y)*(1.0-x*x-y*y)/(1.0+x*x+y*y)/(1.0+x*x+y*y);
 	alpha2 = 4/(1.0+x*x+y*y)/(1.0+x*x+y*y);
 	
 	if(i == j)
 	{
-		if(i == coordU) return 1.0 - 2*M/r;
-		if(i == coordX) return -alpha2*r*r;
-		if(i == coordY) return -alpha2*r*r;
+		if(i == coordU) return 1.0 - 2*M*r/rho2;
+		if(i == coordX) return -alpha2*(r*r + a*a - alpha2*a*a*(x*x - 2*M*r*y*y/rho2));
+		if(i == coordY) return -alpha2*(r*r + a*a - alpha2*a*a*(y*y - 2*M*r*x*x/rho2));
 	}
 	if(i == coordU && j == coordR) return -1.0;
+	if(i == coordU && j == coordX) return -2*M*r*a*y*alpha2/rho2;
+	if(i == coordU && j == coordY) return 2*M*r*a*x*alpha2/rho2;
+	if(i == coordR && j == coordX) return -alpha2*a*y;
+	if(i == coordR && j == coordY) return alpha2*a*x;
+	if(i == coordX && j == coordY) return x*y*a*a*alpha2*alpha2*(1.0+2*M*r/rho2);
 	
 	return 0.0;
 }
@@ -250,8 +286,9 @@ double NearPoleMetric::_g(int i, int j, Point p)
 double NearPoleMetric::_invg(int i, int j, Point p)
 {
 	Point pos = m->convertPointTo(p, coordSystem);
-	double M;
+	double M,a;
 	M = m->getMass();
+	a = m->getAngMomentum();
 	
 	if(i>j)	//switch so that i<=j - it's symmetric anyway
 	{
@@ -261,18 +298,24 @@ double NearPoleMetric::_invg(int i, int j, Point p)
 		j=k;
 	}
 	
-	double r, x, y, alpha2;
+	double rho2, r, x, y, alpha2;
 	r = p[coordR];
 	x = p[coordX];
 	y = p[coordY];
+	rho2 = r*r + a*a*(1.0-x*x-y*y)*(1.0-x*x-y*y)/(1.0+x*x+y*y)/(1.0+x*x+y*y);
 	alpha2 = 4/(1.0+x*x+y*y)/(1.0+x*x+y*y);
 	
 	if(i == j)
 	{
-		if(i == coordR) return -(1.0 - 2*M/r);
-		if(i == coordX || i == coordY) return -1.0/alpha2/r/r;
+		if(i == coordU) return -alpha2*a*a*(x*x+y*y)/rho2;
+		if(i == coordR) return -(r*r + a*a - 2*M*r)/rho2;
+		if(i == coordX || i == coordY) return -1.0/alpha2/rho2;
 	}
-	if(i == coordU && j == coordR) return -1.0;
+	if(i == coordU && j == coordR) return -(r*r+a*a)/rho2;
+	if(i == coordU && j == coordX) return a*y/rho2;
+	if(i == coordU && j == coordY) return -a*x/rho2;
+	if(i == coordR && j == coordX) return a*y/rho2;
+	if(i == coordR && j == coordY) return -a*x/rho2;
 	
 	return 0.0;
 }
@@ -305,8 +348,8 @@ EFToNearPole0::~EFToNearPole0()
 
 Point EFToNearPole0::convertPoint(Point p)
 {
-	if(p.getCoordSystem() != SchwManifold::EF) throw "EFToNearPole0: invalid coordinate system.";
-	Point result(SchwManifold::NearPole0);
+	if(p.getCoordSystem() != KerrManifold::EF) throw "EFToNearPole0: invalid coordinate system.";
+	Point result(KerrManifold::NearPole0);
 	
 	result[0] = p[0];
 	result[1] = p[1];
@@ -318,7 +361,7 @@ Point EFToNearPole0::convertPoint(Point p)
 
 double EFToNearPole0::jacobian(int i, int j, Point p)
 {
-	if(p.getCoordSystem() != SchwManifold::EF) throw "EFToNearPole0: invalid coordinate system.";
+	if(p.getCoordSystem() != KerrManifold::EF) throw "EFToNearPole0: invalid coordinate system.";
 	
 	if(i == 0 || i == 1)
 	{
@@ -338,7 +381,7 @@ double EFToNearPole0::jacobian(int i, int j, Point p)
 
 double EFToNearPole0::inv_jacobian(int i, int j, Point p)
 {
-	if(p.getCoordSystem() != SchwManifold::EF) throw "EFToNearPole0: invalid coordinate system.";
+	if(p.getCoordSystem() != KerrManifold::EF) throw "EFToNearPole0: invalid coordinate system.";
 	
 	if(i == 0 || i == 1)
 	{
@@ -368,8 +411,8 @@ EFToNearPolePi::~EFToNearPolePi()
 
 Point EFToNearPolePi::convertPoint(Point p)
 {
-	if(p.getCoordSystem() != SchwManifold::EF) throw "EFToNearPolePi: invalid coordinate system.";
-	Point result(SchwManifold::NearPolePi);
+	if(p.getCoordSystem() != KerrManifold::EF) throw "EFToNearPolePi: invalid coordinate system.";
+	Point result(KerrManifold::NearPolePi);
 	
 	result[0] = p[0];
 	result[1] = p[1];
@@ -381,7 +424,7 @@ Point EFToNearPolePi::convertPoint(Point p)
 
 double EFToNearPolePi::jacobian(int i, int j, Point p)
 {
-	if(p.getCoordSystem() != SchwManifold::EF) throw "EFToNearPolePi: invalid coordinate system.";
+	if(p.getCoordSystem() != KerrManifold::EF) throw "EFToNearPolePi: invalid coordinate system.";
 	
 	if(i == 0 || i == 1)
 	{
@@ -401,7 +444,7 @@ double EFToNearPolePi::jacobian(int i, int j, Point p)
 
 double EFToNearPolePi::inv_jacobian(int i, int j, Point p)
 {
-	if(p.getCoordSystem() != SchwManifold::EF) throw "EFToNearPolePi: invalid coordinate system.";
+	if(p.getCoordSystem() != KerrManifold::EF) throw "EFToNearPolePi: invalid coordinate system.";
 	
 	if(i == 0 || i == 1)
 	{
@@ -431,8 +474,8 @@ NearPole0ToEF::~NearPole0ToEF()
 
 Point NearPole0ToEF::convertPoint(Point p)
 {
-	if(p.getCoordSystem() != SchwManifold::NearPole0) throw "NearPole0ToEF: invalid coordinate system.";
-	Point result(SchwManifold::EF);
+	if(p.getCoordSystem() != KerrManifold::NearPole0) throw "NearPole0ToEF: invalid coordinate system.";
+	Point result(KerrManifold::EF);
 	
 	result[0] = p[0];
 	result[1] = p[1];
@@ -444,7 +487,7 @@ Point NearPole0ToEF::convertPoint(Point p)
 
 double NearPole0ToEF::jacobian(int i, int j, Point p)
 {
-	if(p.getCoordSystem() != SchwManifold::NearPole0) throw "NearPole0ToEF: invalid coordinate system.";
+	if(p.getCoordSystem() != KerrManifold::NearPole0) throw "NearPole0ToEF: invalid coordinate system.";
 	
 	if(i == 0 || i == 1)
 	{
@@ -466,7 +509,7 @@ double NearPole0ToEF::jacobian(int i, int j, Point p)
 
 double NearPole0ToEF::inv_jacobian(int i, int j, Point p)
 {
-	if(p.getCoordSystem() != SchwManifold::NearPole0) throw "NearPole0ToEF: invalid coordinate system.";
+	if(p.getCoordSystem() != KerrManifold::NearPole0) throw "NearPole0ToEF: invalid coordinate system.";
 	
 	if(i == 0 || i == 1)
 	{
@@ -498,8 +541,8 @@ NearPolePiToEF::~NearPolePiToEF()
 
 Point NearPolePiToEF::convertPoint(Point p)
 {
-	if(p.getCoordSystem() != SchwManifold::NearPolePi) throw "NearPolePiToEF: invalid coordinate system.";
-	Point result(SchwManifold::EF);
+	if(p.getCoordSystem() != KerrManifold::NearPolePi) throw "NearPolePiToEF: invalid coordinate system.";
+	Point result(KerrManifold::EF);
 	
 	result[0] = p[0];
 	result[1] = p[1];
@@ -511,7 +554,7 @@ Point NearPolePiToEF::convertPoint(Point p)
 
 double NearPolePiToEF::jacobian(int i, int j, Point p)
 {
-	if(p.getCoordSystem() != SchwManifold::NearPolePi) throw "NearPolePiToEF: invalid coordinate system.";
+	if(p.getCoordSystem() != KerrManifold::NearPolePi) throw "NearPolePiToEF: invalid coordinate system.";
 	
 	if(i == 0 || i == 1)
 	{
@@ -533,7 +576,7 @@ double NearPolePiToEF::jacobian(int i, int j, Point p)
 
 double NearPolePiToEF::inv_jacobian(int i, int j, Point p)
 {
-	if(p.getCoordSystem() != SchwManifold::NearPolePi) throw "NearPolePiToEF: invalid coordinate system.";
+	if(p.getCoordSystem() != KerrManifold::NearPolePi) throw "NearPolePiToEF: invalid coordinate system.";
 	
 	if(i == 0 || i == 1)
 	{
@@ -565,10 +608,10 @@ NearPoleToNearPole::~NearPoleToNearPole()
 
 Point NearPoleToNearPole::convertPoint(Point p)
 {
-	if(p.getCoordSystem() != SchwManifold::NearPole0 && p.getCoordSystem() != SchwManifold::NearPolePi) 
-		throw "NearPoleToNearPole: invalid coordinate system.";
+	if(p.getCoordSystem() != KerrManifold::NearPole0 && p.getCoordSystem() != KerrManifold::NearPolePi) 
+		throw "NearPole0ToNearPolePi: invalid coordinate system.";
 	
-	Point result(p.getCoordSystem() == SchwManifold::NearPole0 ? SchwManifold::NearPolePi : SchwManifold::NearPole0);
+	Point result(p.getCoordSystem() == KerrManifold::NearPole0 ? KerrManifold::NearPolePi : KerrManifold::NearPole0);
 	
 	double l = p[2]*p[2] + p[3]*p[3];
 	
@@ -582,8 +625,8 @@ Point NearPoleToNearPole::convertPoint(Point p)
 
 double NearPoleToNearPole::jacobian(int i, int j, Point p)
 {
-	if(p.getCoordSystem() != SchwManifold::NearPole0 && p.getCoordSystem() != SchwManifold::NearPolePi) 
-		throw "NearPoleToNearPole: invalid coordinate system.";
+	if(p.getCoordSystem() != KerrManifold::NearPole0 && p.getCoordSystem() != KerrManifold::NearPolePi) 
+		throw "NearPole0ToNearPolePi: invalid coordinate system.";
 	
 	if(i == 0 || i == 1)
 	{
@@ -606,8 +649,8 @@ double NearPoleToNearPole::jacobian(int i, int j, Point p)
 
 double NearPoleToNearPole::inv_jacobian(int i, int j, Point p)
 {
-	if(p.getCoordSystem() != SchwManifold::NearPole0 && p.getCoordSystem() != SchwManifold::NearPolePi) 
-		throw "NearPoleToNearPole: invalid coordinate system.";
+	if(p.getCoordSystem() != KerrManifold::NearPole0 && p.getCoordSystem() != KerrManifold::NearPolePi) 
+		throw "NearPole0ToNearPolePi: invalid coordinate system.";
 	
 	if(i == 0 || i == 1)
 	{
