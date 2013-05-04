@@ -20,10 +20,16 @@ class Entity : public Particle
 	
 	void orthonormalize();
 	
+	double force[3];
+	double angvel[3];
+	
+	vector4 calculateFourForce(int);
+	
 	StateVector constructState();
 	void setState(StateVector);
 	Point getPosFromState(StateVector);
 	vector4 getVelFromState(StateVector);
+	vector4 getVectorFromState(StateVector, int);
 public:
 	//Entity(Manifold*, Point, vector4); - TODO
 	Entity(Manifold*, Point, vector4, vector4, vector4, vector4);
@@ -39,6 +45,10 @@ public:
 	
 	void setPosVel(Point, vector4);
 	void setVel(vector4);
+	
+	void applyForce(double, double, double);
+	void applyAngVel(double, double, double);
+	void rotate(double, double, double);
 };
 
 #endif
