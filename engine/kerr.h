@@ -1,5 +1,5 @@
-#ifndef __SCHW_H__
-#define __SCHW_H__
+#ifndef __KERR_H__
+#define __KERR_H__
 
 /*! \file kerr.h
  * \brief Implementation of the Kerr metric
