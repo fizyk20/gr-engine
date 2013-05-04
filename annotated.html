@@ -63,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li class="current"><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -71,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,7 +89,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="textblock">Here are the classes, structs, unions and interfaces with brief descriptions:</div><div class="directory">
 <table class="directory">
 <tr id="row_0_" class="even"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2cl.png" alt="C" width="24" height="22" /><a class="el" href="class_coordinate_conversion.html" target="_self">CoordinateConversion</a></td><td class="desc">Basic class for conversions between coordinate systems</td></tr>
-<tr id="row_1_"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2cl.png" alt="C" width="24" height="22" /><a class="el" href="class_diff_eq.html" target="_self">DiffEq</a></td><td class="desc">Base class for implementing differential equations. Defining differential equations is done by overloading the <em>derivative</em> method in a child class</td></tr>
+<tr id="row_1_"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2cl.png" alt="C" width="24" height="22" /><a class="el" href="class_diff_eq.html" target="_self">DiffEq</a></td><td class="desc">Base class for implementing differential equations</td></tr>
 <tr id="row_2_" class="even"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2cl.png" alt="C" width="24" height="22" /><a class="el" href="class_d_p_integrator.html" target="_self">DPIntegrator</a></td><td class="desc">Class implementing a Dormand-Prince numerical integrator</td></tr>
 <tr id="row_3_"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2cl.png" alt="C" width="24" height="22" /><a class="el" href="class_e_f_to_near_pole0.html" target="_self">EFToNearPole0</a></td><td class="desc">Coordinate conversion from EF coordinates to stereographic near pole theta=0</td></tr>
 <tr id="row_4_" class="even"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2cl.png" alt="C" width="24" height="22" /><a class="el" href="class_e_f_to_near_pole_pi.html" target="_self">EFToNearPolePi</a></td><td class="desc">Coordinate conversion from EF coordinates to stereographic near pole theta=pi</td></tr>
@@ -103,7 +104,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr id="row_13_"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2cl.png" alt="C" width="24" height="22" /><a class="el" href="class_near_pole0_to_e_f.html" target="_self">NearPole0ToEF</a></td><td class="desc">Coordinate conversion from stereographic coordinates near pole theta=0 to EF</td></tr>
 <tr id="row_14_" class="even"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2cl.png" alt="C" width="24" height="22" /><a class="el" href="class_near_pole_pi_to_e_f.html" target="_self">NearPolePiToEF</a></td><td class="desc">Coordinate conversion from stereographic coordinates near pole theta=pi to EF</td></tr>
 <tr id="row_15_"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2cl.png" alt="C" width="24" height="22" /><a class="el" href="class_near_pole_to_near_pole.html" target="_self">NearPoleToNearPole</a></td><td class="desc">Coordinate conversion from stereographic coordinates near one pole to another</td></tr>
-<tr id="row_16_" class="even"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2cl.png" alt="C" width="24" height="22" /><a class="el" href="class_particle.html" target="_self">Particle</a></td><td class="desc">Class representing a particle with defined position and 4-velocity Inherits <a class="el" href="class_diff_eq.html" title="Base class for implementing differential equations. Defining differential equations is done by overlo...">DiffEq</a> for solving of the geodesic equation</td></tr>
+<tr id="row_16_" class="even"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2cl.png" alt="C" width="24" height="22" /><a class="el" href="class_particle.html" target="_self">Particle</a></td><td class="desc">Class representing a particle with defined position and 4-velocity Inherits <a class="el" href="class_diff_eq.html" title="Base class for implementing differential equations.">DiffEq</a> for solving of the geodesic equation</td></tr>
 <tr id="row_17_"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2cl.png" alt="C" width="24" height="22" /><a class="el" href="class_point.html" target="_self">Point</a></td><td class="desc">A point on a manifold</td></tr>
 <tr id="row_18_" class="even"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2cl.png" alt="C" width="24" height="22" /><a class="el" href="class_r_k4_integrator.html" target="_self">RK4Integrator</a></td><td class="desc">Class implementing an RK4 numerical integrator</td></tr>
 <tr id="row_19_"><td class="entry"><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2cl.png" alt="C" width="24" height="22" /><a class="el" href="class_schw_e_f_metric.html" target="_self">SchwEFMetric</a></td><td class="desc">The Schwarzschild metric in Eddington-Finkelstein coordinates</td></tr>
@@ -116,7 +117,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 4 2013 19:57:53 for GR Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 4 2013 20:30:45 for GR Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

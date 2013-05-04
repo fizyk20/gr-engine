@@ -61,6 +61,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -68,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,7 +91,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="dpintegrator_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef __DPINTEGRATOR__</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define __DPINTEGRATOR__</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"> #include &quot;<a class="code" href="numeric_8h.html" title="Classes implementing numerical methods.">numeric.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"> #include &quot;<a class="code" href="numeric_8h.html" title="Base file for numerical methods.">numeric.h</a>&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
 <div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="class_d_p_integrator.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_d_p_integrator.html" title="Class implementing a Dormand-Prince numerical integrator.">DPIntegrator</a> : <span class="keyword">public</span> <a class="code" href="class_integrator.html" title="Base class implementing a numerical integrator.">Integrator</a></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
@@ -99,11 +100,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">double</span> maxStep;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    </div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    StateVector lastDerivative, lastState;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="class_diff_eq.html" title="Base class for implementing differential equations. Defining differential equations is done by overlo...">DiffEq</a>* lastEq;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="class_diff_eq.html" title="Base class for implementing differential equations.">DiffEq</a>* lastEq;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_d_p_integrator.html" title="Class implementing a Dormand-Prince numerical integrator.">DPIntegrator</a>(<span class="keywordtype">double</span> maxErr = 0.000001, <span class="keywordtype">double</span> stepSize = 0.01);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_d_p_integrator.html" title="Class implementing a Dormand-Prince numerical integrator.">DPIntegrator</a>(<span class="keywordtype">double</span> maxErr = 0.000001, <span class="keywordtype">double</span> <a class="code" href="class_integrator.html#a090e1528e266773f5fa81ffa11175cb7" title="Default step size.">stepSize</a> = 0.01);</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    ~<a class="code" href="class_d_p_integrator.html" title="Class implementing a Dormand-Prince numerical integrator.">DPIntegrator</a>();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    StateVector next(StateVector state, <a class="code" href="class_diff_eq.html" title="Base class for implementing differential equations. Defining differential equations is done by overlo...">DiffEq</a>* equation, <span class="keywordtype">double</span> step = 0.0);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    StateVector <a class="code" href="class_d_p_integrator.html#adae3cbf61a60647610d6bb10b0172b10" title="Function returning the next value of the state.">next</a>(StateVector state, <a class="code" href="class_diff_eq.html" title="Base class for implementing differential equations.">DiffEq</a>* equation, <span class="keywordtype">double</span> step = 0.0);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">double</span> getMaxErr();</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">double</span> getMinStep();</div>
@@ -119,7 +120,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 4 2013 19:57:53 for GR Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 4 2013 20:30:45 for GR Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

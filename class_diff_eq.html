@@ -63,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -70,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -89,7 +90,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>Base class for implementing differential equations. Defining differential equations is done by overloading the <em>derivative</em> method in a child class.  
+<p>Base class for implementing differential equations.  
  <a href="class_diff_eq.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="numeric_8h_source.html">numeric.h</a>&gt;</code></p>
@@ -106,20 +107,65 @@ Inheritance diagram for DiffEq:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a707d2fc532b711b090048c7477324308"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a707d2fc532b711b090048c7477324308"></a>
-virtual StateVector&#160;</td><td class="memItemRight" valign="bottom"><b>derivative</b> (StateVector v)=0</td></tr>
+<tr class="memitem:a2635cb2b4e2a3cfcb9eebe27b8169d96"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2635cb2b4e2a3cfcb9eebe27b8169d96"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_diff_eq.html#a2635cb2b4e2a3cfcb9eebe27b8169d96">DiffEq</a> ()</td></tr>
+<tr class="memdesc:a2635cb2b4e2a3cfcb9eebe27b8169d96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br/></td></tr>
+<tr class="separator:a2635cb2b4e2a3cfcb9eebe27b8169d96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add0b279919dd0f7c0d138f18bacf79bb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="add0b279919dd0f7c0d138f18bacf79bb"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_diff_eq.html#add0b279919dd0f7c0d138f18bacf79bb">~DiffEq</a> ()</td></tr>
+<tr class="memdesc:add0b279919dd0f7c0d138f18bacf79bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor. <br/></td></tr>
+<tr class="separator:add0b279919dd0f7c0d138f18bacf79bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a707d2fc532b711b090048c7477324308"><td class="memItemLeft" align="right" valign="top">virtual StateVector&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_diff_eq.html#a707d2fc532b711b090048c7477324308">derivative</a> (StateVector v)=0</td></tr>
+<tr class="memdesc:a707d2fc532b711b090048c7477324308"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual function returning the derivative based on the current state.  <a href="#a707d2fc532b711b090048c7477324308">More...</a><br/></td></tr>
 <tr class="separator:a707d2fc532b711b090048c7477324308"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Base class for implementing differential equations. Defining differential equations is done by overloading the <em>derivative</em> method in a child class. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+<div class="textblock"><p>Base class for implementing differential equations. </p>
+<p>Class represents a differential equation of the form dy/dx = f(x, y) The (x, y) forms a state vector, which is passed to the <em>derivative</em> method, corresponding to the function f. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a707d2fc532b711b090048c7477324308"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual StateVector DiffEq::derivative </td>
+          <td>(</td>
+          <td class="paramtype">StateVector&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pure virtual function returning the derivative based on the current state. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>Current state. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>StateVector which contains the derivatives of the components of the state. </dd></dl>
+
+<p>Implemented in <a class="el" href="class_entity.html#a560abb83e1a7378e0b005b565f48ac1a">Entity</a>, and <a class="el" href="class_particle.html#a806a8390bb5bad7db05d12a3a8344f35">Particle</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>engine/<a class="el" href="numeric_8h_source.html">numeric.h</a></li>
 <li>engine/numeric.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 4 2013 19:57:53 for GR Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 4 2013 20:30:45 for GR Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

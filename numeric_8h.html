@@ -61,6 +61,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -68,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -92,7 +93,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>Classes implementing numerical methods.  
+<p>Base file for numerical methods.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;vector&gt;</code><br/>
 <code>#include &lt;exception&gt;</code><br/>
@@ -105,7 +106,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An exception class thrown when there is a state vector length mismatch.  <a href="class_state_length_error.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_diff_eq.html">DiffEq</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for implementing differential equations. Defining differential equations is done by overloading the <em>derivative</em> method in a child class.  <a href="class_diff_eq.html#details">More...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for implementing differential equations.  <a href="class_diff_eq.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_integrator.html">Integrator</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class implementing a numerical integrator.  <a href="class_integrator.html#details">More...</a><br/></td></tr>
@@ -120,30 +121,37 @@ typedef std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="b
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aae819e77c2e5159306c540331b1c5063"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aae819e77c2e5159306c540331b1c5063"></a>
-StateVector&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (const StateVector &amp;, const StateVector &amp;)</td></tr>
+StateVector&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="numeric_8h.html#aae819e77c2e5159306c540331b1c5063">operator+</a> (const StateVector &amp;, const StateVector &amp;)</td></tr>
+<tr class="memdesc:aae819e77c2e5159306c540331b1c5063"><td class="mdescLeft">&#160;</td><td class="mdescRight">Addition operator for StateVectors. <br/></td></tr>
 <tr class="separator:aae819e77c2e5159306c540331b1c5063"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf093c4f09dfead48ea386d3e24ad08e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaf093c4f09dfead48ea386d3e24ad08e"></a>
-StateVector&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> (const StateVector &amp;, const StateVector &amp;)</td></tr>
+StateVector&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="numeric_8h.html#aaf093c4f09dfead48ea386d3e24ad08e">operator-</a> (const StateVector &amp;, const StateVector &amp;)</td></tr>
+<tr class="memdesc:aaf093c4f09dfead48ea386d3e24ad08e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtraction operator for StateVectors. <br/></td></tr>
 <tr class="separator:aaf093c4f09dfead48ea386d3e24ad08e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abca7a4b60fd56a8c9d3aa00cb3197ad1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abca7a4b60fd56a8c9d3aa00cb3197ad1"></a>
-StateVector&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (const StateVector &amp;, double)</td></tr>
+StateVector&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="numeric_8h.html#abca7a4b60fd56a8c9d3aa00cb3197ad1">operator*</a> (const StateVector &amp;, double)</td></tr>
+<tr class="memdesc:abca7a4b60fd56a8c9d3aa00cb3197ad1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Right multiplication by double for StateVectors. <br/></td></tr>
 <tr class="separator:abca7a4b60fd56a8c9d3aa00cb3197ad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2ca6d7a9c1ae4053bf9bf8d218ab64d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae2ca6d7a9c1ae4053bf9bf8d218ab64d"></a>
-StateVector&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (double, const StateVector &amp;)</td></tr>
+StateVector&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="numeric_8h.html#ae2ca6d7a9c1ae4053bf9bf8d218ab64d">operator*</a> (double, const StateVector &amp;)</td></tr>
+<tr class="memdesc:ae2ca6d7a9c1ae4053bf9bf8d218ab64d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Left multiplication by double for StateVectors. <br/></td></tr>
 <tr class="separator:ae2ca6d7a9c1ae4053bf9bf8d218ab64d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3be51a43c02604e3a443d6439e5ee90c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3be51a43c02604e3a443d6439e5ee90c"></a>
-StateVector&#160;</td><td class="memItemRight" valign="bottom"><b>operator/</b> (const StateVector &amp;, double)</td></tr>
+StateVector&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="numeric_8h.html#a3be51a43c02604e3a443d6439e5ee90c">operator/</a> (const StateVector &amp;, double)</td></tr>
+<tr class="memdesc:a3be51a43c02604e3a443d6439e5ee90c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Division by double for StateVectors. <br/></td></tr>
 <tr class="separator:a3be51a43c02604e3a443d6439e5ee90c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5843d01cf6ed825a6f856926ed9d3015"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5843d01cf6ed825a6f856926ed9d3015"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>abs</b> (StateVector)</td></tr>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="numeric_8h.html#a5843d01cf6ed825a6f856926ed9d3015">abs</a> (StateVector)</td></tr>
+<tr class="memdesc:a5843d01cf6ed825a6f856926ed9d3015"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function returning the magnitude of a StateVector. <br/></td></tr>
 <tr class="separator:a5843d01cf6ed825a6f856926ed9d3015"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Classes implementing numerical methods. </p>
+<div class="textblock"><p>Base file for numerical methods. </p>
+<p>Provides basis for implementation of algorithms for numerical integration. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 4 2013 19:57:53 for GR Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 4 2013 20:30:45 for GR Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>
