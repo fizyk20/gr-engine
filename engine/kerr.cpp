@@ -70,7 +70,7 @@ void KerrManifold::setAngMomentum(double _a)
 	a = _a;
 }
 	
-int recommendCoordSystem(Point p)
+int KerrManifold::recommendCoordSystem(Point p)
 {
 	double l;
 	switch(p.getCoordSystem())
@@ -84,12 +84,24 @@ int recommendCoordSystem(Point p)
 		l = p[2]*p[2] + p[3]*p[3];
 		if(l > 0.07) return KerrManifold::EF;
 		else return p.getCoordSystem();
+	default:
+		return 0;
 	}
 }
 
 /*
  * Metric in Eddington-Finkelstein coordinates
  */
+ 
+EFMetric::EFMetric(int cS, KerrManifold* _m)
+	: Metric(cS)
+{ 
+	m = _m;
+}
+ 
+EFMetric::~EFMetric()
+{ 
+}
 
 double EFMetric::_g(int i, int j, Point p)
 {
@@ -244,6 +256,16 @@ double EFMetric::_christoffel(int i, int j, int k, Point p)
 /*
  * Metric in stereographic coordinates
  */
+ 
+NearPoleMetric::NearPoleMetric(int cS, KerrManifold* _m)
+	: Metric(cS)
+{
+	m = _m;
+}
+
+NearPoleMetric::~NearPoleMetric()
+{
+}
 
 double NearPoleMetric::_g(int i, int j, Point p)
 {
