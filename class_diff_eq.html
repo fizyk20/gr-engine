@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.3.1"/>
-<title>GR Engine: Main Page</title>
+<title>GR Engine: DiffEq Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -37,8 +37,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -58,7 +58,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-</div><!-- top -->
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -73,27 +79,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="class_diff_eq-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">GR Engine Documentation</div>  </div>
+<div class="title">DiffEq Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>This is the documentation for the GR Engine.</p>
-<h2>Current features</h2>
-<ul>
-<li>numerical integration using RK4 or Dormand-Prince methods</li>
-<li>simulated entities:<ul>
-<li>point particles</li>
-<li>entities with orientation (that is, local vector basis)</li>
+
+<p>Base class for implementing differential equations. Defining differential equations is done by overloading the <em>derivative</em> method in a child class.  
+ <a href="class_diff_eq.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="numeric_8h_source.html">numeric.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for DiffEq:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_diff_eq.png" usemap="#DiffEq_map" alt=""/>
+  <map id="DiffEq_map" name="DiffEq_map">
+<area href="class_particle.html" title="Class representing a particle with defined position and 4-velocity Inherits DiffEq for solving of the..." alt="Particle" shape="rect" coords="0,56,55,80"/>
+<area href="class_entity.html" title="Class representing an entity with defined position, 4-velocity and local basis (orientation) Inherits..." alt="Entity" shape="rect" coords="0,112,55,136"/>
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a707d2fc532b711b090048c7477324308"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a707d2fc532b711b090048c7477324308"></a>
+virtual StateVector&#160;</td><td class="memItemRight" valign="bottom"><b>derivative</b> (StateVector v)=0</td></tr>
+<tr class="separator:a707d2fc532b711b090048c7477324308"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Base class for implementing differential equations. Defining differential equations is done by overloading the <em>derivative</em> method in a child class. </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
+<li>engine/<a class="el" href="numeric_8h_source.html">numeric.h</a></li>
+<li>engine/numeric.cpp</li>
 </ul>
-</li>
-<li>spacetimes:<ul>
-<li>Schwarzschild</li>
-<li>Kerr </li>
-</ul>
-</li>
-</ul>
-</div></div><!-- contents -->
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated on Sat May 4 2013 19:08:35 for GR Engine by &#160;<a href="http://www.doxygen.org/index.html">

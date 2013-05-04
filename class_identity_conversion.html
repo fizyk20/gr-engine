@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.3.1"/>
-<title>GR Engine: Main Page</title>
+<title>GR Engine: IdentityConversion Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -37,8 +37,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -58,7 +58,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-</div><!-- top -->
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -73,27 +79,49 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="class_identity_conversion-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">GR Engine Documentation</div>  </div>
+<div class="title">IdentityConversion Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>This is the documentation for the GR Engine.</p>
-<h2>Current features</h2>
-<ul>
-<li>numerical integration using RK4 or Dormand-Prince methods</li>
-<li>simulated entities:<ul>
-<li>point particles</li>
-<li>entities with orientation (that is, local vector basis)</li>
+
+<p>Class implementing the trivial conversion.  
+ <a href="class_identity_conversion.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="geometry_8h_source.html">geometry.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for IdentityConversion:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_identity_conversion.png" usemap="#IdentityConversion_map" alt=""/>
+  <map id="IdentityConversion_map" name="IdentityConversion_map">
+<area href="class_coordinate_conversion.html" title="Basic class for conversions between coordinate systems." alt="CoordinateConversion" shape="rect" coords="0,0,139,24"/>
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:af01ec8f76dd2c73f577c10de7e7d16cb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af01ec8f76dd2c73f577c10de7e7d16cb"></a>
+<a class="el" href="class_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><b>convertPoint</b> (<a class="el" href="class_point.html">Point</a> p)</td></tr>
+<tr class="separator:af01ec8f76dd2c73f577c10de7e7d16cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc9e91bdf3a7694d00a670a8d91285ad"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abc9e91bdf3a7694d00a670a8d91285ad"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>jacobian</b> (int i, int j, <a class="el" href="class_point.html">Point</a>)</td></tr>
+<tr class="separator:abc9e91bdf3a7694d00a670a8d91285ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a870f85a090589b0833f59e09b6c1bf26"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a870f85a090589b0833f59e09b6c1bf26"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>inv_jacobian</b> (int i, int j, <a class="el" href="class_point.html">Point</a>)</td></tr>
+<tr class="separator:a870f85a090589b0833f59e09b6c1bf26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Class implementing the trivial conversion. </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
+<li>engine/<a class="el" href="geometry_8h_source.html">geometry.h</a></li>
+<li>engine/geometry.cpp</li>
 </ul>
-</li>
-<li>spacetimes:<ul>
-<li>Schwarzschild</li>
-<li>Kerr </li>
-</ul>
-</li>
-</ul>
-</div></div><!-- contents -->
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated on Sat May 4 2013 19:08:35 for GR Engine by &#160;<a href="http://www.doxygen.org/index.html">
