@@ -111,26 +111,180 @@ Inheritance diagram for CoordinateConversion:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af82588653001116e1fa5ef6c71ef5f51"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af82588653001116e1fa5ef6c71ef5f51"></a>
-virtual <a class="el" href="class_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><b>convertPoint</b> (<a class="el" href="class_point.html">Point</a>)=0</td></tr>
-<tr class="separator:af82588653001116e1fa5ef6c71ef5f51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2cd1f0a5e2f3ef5717d5d583ba7e4da9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2cd1f0a5e2f3ef5717d5d583ba7e4da9"></a>
-virtual double&#160;</td><td class="memItemRight" valign="bottom"><b>jacobian</b> (int, int, <a class="el" href="class_point.html">Point</a>)=0</td></tr>
-<tr class="separator:a2cd1f0a5e2f3ef5717d5d583ba7e4da9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a7ecfc9870d5734dd46b1a21747a95b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5a7ecfc9870d5734dd46b1a21747a95b"></a>
-virtual double&#160;</td><td class="memItemRight" valign="bottom"><b>inv_jacobian</b> (int, int, <a class="el" href="class_point.html">Point</a>)=0</td></tr>
-<tr class="separator:a5a7ecfc9870d5734dd46b1a21747a95b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a516ba86c5ea883b16ea3ea4982ff4e65"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a516ba86c5ea883b16ea3ea4982ff4e65"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_coordinate_conversion.html#a516ba86c5ea883b16ea3ea4982ff4e65">CoordinateConversion</a> ()</td></tr>
+<tr class="memdesc:a516ba86c5ea883b16ea3ea4982ff4e65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br/></td></tr>
+<tr class="separator:a516ba86c5ea883b16ea3ea4982ff4e65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2654a8434bf341993c2979f992f93a32"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2654a8434bf341993c2979f992f93a32"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_coordinate_conversion.html#a2654a8434bf341993c2979f992f93a32">~CoordinateConversion</a> ()</td></tr>
+<tr class="memdesc:a2654a8434bf341993c2979f992f93a32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
+<tr class="separator:a2654a8434bf341993c2979f992f93a32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9221b538fdc3c003d785e53709b848d3"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_coordinate_conversion.html#a9221b538fdc3c003d785e53709b848d3">convertPoint</a> (<a class="el" href="class_point.html">Point</a> p)=0</td></tr>
+<tr class="memdesc:a9221b538fdc3c003d785e53709b848d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion of a point.  <a href="#a9221b538fdc3c003d785e53709b848d3">More...</a><br/></td></tr>
+<tr class="separator:a9221b538fdc3c003d785e53709b848d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad22694ed266e02d6d26a3488d33c851a"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_coordinate_conversion.html#ad22694ed266e02d6d26a3488d33c851a">jacobian</a> (int i, int j, <a class="el" href="class_point.html">Point</a> p)=0</td></tr>
+<tr class="memdesc:ad22694ed266e02d6d26a3488d33c851a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Jacobian of the conversion.  <a href="#ad22694ed266e02d6d26a3488d33c851a">More...</a><br/></td></tr>
+<tr class="separator:ad22694ed266e02d6d26a3488d33c851a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94554af4aadc8f5672351bec6f4cd9d8"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_coordinate_conversion.html#a94554af4aadc8f5672351bec6f4cd9d8">inv_jacobian</a> (int i, int j, <a class="el" href="class_point.html">Point</a> p)=0</td></tr>
+<tr class="memdesc:a94554af4aadc8f5672351bec6f4cd9d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inverse jacobian of the conversion.  <a href="#a94554af4aadc8f5672351bec6f4cd9d8">More...</a><br/></td></tr>
+<tr class="separator:a94554af4aadc8f5672351bec6f4cd9d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Basic class for conversions between coordinate systems. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+<p>This class provides interface for converting points and vectors between different coordinate systems defined on a manifold. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a9221b538fdc3c003d785e53709b848d3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="class_point.html">Point</a> CoordinateConversion::convertPoint </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_point.html">Point</a>&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Conversion of a point. </p>
+<p>This method converts a single point to a different coordinate system. Pure virtual - to be overloaded in child classes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td><a class="el" href="class_point.html" title="A point on a manifold.">Point</a> to be converted </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Converted point </dd></dl>
+
+<p>Implemented in <a class="el" href="class_identity_conversion.html#af01ec8f76dd2c73f577c10de7e7d16cb">IdentityConversion</a>, <a class="el" href="class_near_pole_to_near_pole.html#a4dae7a2baa655e7648bbdd8c3e087e3e">NearPoleToNearPole</a>, <a class="el" href="class_near_pole_pi_to_e_f.html#a6f899425249234e1d7969b80f72efe5a">NearPolePiToEF</a>, <a class="el" href="class_e_f_to_near_pole_pi.html#a2fd08ceb94daaf87e84c9182196b5637">EFToNearPolePi</a>, <a class="el" href="class_near_pole0_to_e_f.html#a0b2c2d941cd3b94edd41dc35254cfe1b">NearPole0ToEF</a>, and <a class="el" href="class_e_f_to_near_pole0.html#ae55ae18f3bb966a2b72945e273d4d0bb">EFToNearPole0</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a94554af4aadc8f5672351bec6f4cd9d8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double CoordinateConversion::inv_jacobian </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_point.html">Point</a>&#160;</td>
+          <td class="paramname"><em>p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Inverse jacobian of the conversion. </p>
+<p>This method returns the inverse jacobian (matrix of partial derivatives) of the transformation between coordinate systems Pure virtual - to be overloaded in child classes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>The number of the row </td></tr>
+    <tr><td class="paramname">j</td><td>The number of the column </td></tr>
+    <tr><td class="paramname">p</td><td>The point at which the jacobian is calculated </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>dy^i/dx^j(p), where y^i - new coordinates, x^j - old coordinates </dd></dl>
+
+<p>Implemented in <a class="el" href="class_identity_conversion.html#a870f85a090589b0833f59e09b6c1bf26">IdentityConversion</a>, <a class="el" href="class_near_pole_to_near_pole.html#a47fa719baa4e69cfacdd90037b722df7">NearPoleToNearPole</a>, <a class="el" href="class_near_pole_pi_to_e_f.html#a060f631fc1f513ae767da7362351700e">NearPolePiToEF</a>, <a class="el" href="class_e_f_to_near_pole_pi.html#a3e0463f54c854f9a7234a70500c4c521">EFToNearPolePi</a>, <a class="el" href="class_near_pole0_to_e_f.html#a241d594507aff1a3e21b7f640d38bd93">NearPole0ToEF</a>, and <a class="el" href="class_e_f_to_near_pole0.html#a5cb3ad453f2df9821bbabefbe7745f06">EFToNearPole0</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad22694ed266e02d6d26a3488d33c851a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double CoordinateConversion::jacobian </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_point.html">Point</a>&#160;</td>
+          <td class="paramname"><em>p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Jacobian of the conversion. </p>
+<p>This method returns the jacobian (matrix of partial derivatives) of the transformation between coordinate systems Pure virtual - to be overloaded in child classes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>The number of the row </td></tr>
+    <tr><td class="paramname">j</td><td>The number of the column </td></tr>
+    <tr><td class="paramname">p</td><td>The point at which the jacobian is calculated </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>dx^i/dy^j(p), where x^i - old coordinates, y^j - new coordinates </dd></dl>
+
+<p>Implemented in <a class="el" href="class_identity_conversion.html#abc9e91bdf3a7694d00a670a8d91285ad">IdentityConversion</a>, <a class="el" href="class_near_pole_to_near_pole.html#a15986c6599775eac031c68db9e1b6ab0">NearPoleToNearPole</a>, <a class="el" href="class_near_pole_pi_to_e_f.html#a9ab096206261b0ea02de125efb0988c6">NearPolePiToEF</a>, <a class="el" href="class_e_f_to_near_pole_pi.html#a83a301cd40a7fb2960252a5627f4f6cb">EFToNearPolePi</a>, <a class="el" href="class_near_pole0_to_e_f.html#a62c9f52e73f81a11e3e6e03665699e4f">NearPole0ToEF</a>, and <a class="el" href="class_e_f_to_near_pole0.html#a48dc758102820e2fc1a0adb2107fe2c4">EFToNearPole0</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>engine/<a class="el" href="geometry_8h_source.html">geometry.h</a></li>
 <li>engine/geometry.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 4 2013 20:30:45 for GR Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 7 2013 23:48:06 for GR Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>
