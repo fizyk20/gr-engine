@@ -96,12 +96,12 @@ vector4::vector4()
 	v[0] = v[1] = v[2] = v[3] = 0.0;
 }
 
-vector4::vector4(double a, double b, double c, double d)
+vector4::vector4(double v1, double v2, double v3, double v4)
 {
-	v[0] = a;
-	v[1] = b;
-	v[2] = c;
-	v[3] = d;
+	v[0] = v1;
+	v[1] = v2;
+	v[2] = v3;
+	v[3] = v4;
 }
 
 vector4::~vector4()
