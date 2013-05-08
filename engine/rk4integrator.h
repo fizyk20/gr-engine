@@ -13,8 +13,17 @@
 class RK4Integrator : public Integrator
 {
 public:
+	//! Constructor
+	/*! \param stepSize Default step size
+	 */
 	RK4Integrator(double stepSize = 0.01);
+	//! Destructor
 	~RK4Integrator();
+	//! Function calculating the next state
+	/*! \param state Current state
+	 *  \param equation The differential equation to be used
+	 *  \param step Step size. If 0 (default), the default step size is used.
+	 */
 	StateVector next(StateVector state, DiffEq* equation, double step = 0.0);
 };
 

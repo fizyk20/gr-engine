@@ -7,12 +7,12 @@
  *
  *******************************************************************************/
 
-DPIntegrator::DPIntegrator(double maxErr, double stepSize)
+DPIntegrator::DPIntegrator(double maxErr, double stepSize, double minStep, double maxStep)
 	: Integrator(stepSize)
 {
 	this->maxErr = maxErr;
-	minStep = 0.0001;
-	maxStep = 0.1;
+	this->minStep = minStep;
+	this->maxStep = maxStep;
 }
 
 DPIntegrator::~DPIntegrator()
