@@ -106,11 +106,15 @@ Inheritance diagram for RK4Integrator:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae06993cb16520db8df1f6608bd47e0aa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae06993cb16520db8df1f6608bd47e0aa"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>RK4Integrator</b> (double <a class="el" href="class_integrator.html#a090e1528e266773f5fa81ffa11175cb7">stepSize</a>=0.01)</td></tr>
+<tr class="memitem:ae06993cb16520db8df1f6608bd47e0aa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_r_k4_integrator.html#ae06993cb16520db8df1f6608bd47e0aa">RK4Integrator</a> (double <a class="el" href="class_integrator.html#a090e1528e266773f5fa81ffa11175cb7">stepSize</a>=0.01)</td></tr>
+<tr class="memdesc:ae06993cb16520db8df1f6608bd47e0aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#ae06993cb16520db8df1f6608bd47e0aa">More...</a><br/></td></tr>
 <tr class="separator:ae06993cb16520db8df1f6608bd47e0aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d16eec8062c63dd870f17a5643c58e6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0d16eec8062c63dd870f17a5643c58e6"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_r_k4_integrator.html#a0d16eec8062c63dd870f17a5643c58e6">~RK4Integrator</a> ()</td></tr>
+<tr class="memdesc:a0d16eec8062c63dd870f17a5643c58e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
+<tr class="separator:a0d16eec8062c63dd870f17a5643c58e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee065011b070a3e6a9df7d9d6226cff1"><td class="memItemLeft" align="right" valign="top">StateVector&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_r_k4_integrator.html#aee065011b070a3e6a9df7d9d6226cff1">next</a> (StateVector state, <a class="el" href="class_diff_eq.html">DiffEq</a> *equation, double step=0.0)</td></tr>
-<tr class="memdesc:aee065011b070a3e6a9df7d9d6226cff1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function returning the next value of the state.  <a href="#aee065011b070a3e6a9df7d9d6226cff1">More...</a><br/></td></tr>
+<tr class="memdesc:aee065011b070a3e6a9df7d9d6226cff1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function calculating the next state.  <a href="#aee065011b070a3e6a9df7d9d6226cff1">More...</a><br/></td></tr>
 <tr class="separator:aee065011b070a3e6a9df7d9d6226cff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_integrator"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_integrator')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_integrator.html">Integrator</a></td></tr>
 <tr class="memitem:a4e3ab07d8147f61e36a1dbdb5777bd8d inherit pub_methods_class_integrator"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_integrator.html#a4e3ab07d8147f61e36a1dbdb5777bd8d">Integrator</a> (double <a class="el" href="class_integrator.html#a090e1528e266773f5fa81ffa11175cb7">stepSize</a>=0.01)</td></tr>
@@ -147,7 +151,32 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class implementing an RK4 numerical integrator. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ae06993cb16520db8df1f6608bd47e0aa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RK4Integrator::RK4Integrator </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>stepSize</em> = <code>0.01</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stepSize</td><td>Default step size </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="aee065011b070a3e6a9df7d9d6226cff1"></a>
 <div class="memitem">
 <div class="memproto">
@@ -186,16 +215,15 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </table>
 </div><div class="memdoc">
 
-<p>Function returning the next value of the state. </p>
+<p>Function calculating the next state. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">state</td><td>Initial state </td></tr>
-    <tr><td class="paramname">equation</td><td>Differential equation to be used for propagation </td></tr>
-    <tr><td class="paramname">step</td><td>Step size. Defaults to 0.0. </td></tr>
+    <tr><td class="paramname">state</td><td>Current state </td></tr>
+    <tr><td class="paramname">equation</td><td>The differential equation to be used </td></tr>
+    <tr><td class="paramname">step</td><td>Step size. If 0 (default), the default step size is used. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Next value of the state vector. </dd></dl>
 
 <p>Implements <a class="el" href="class_integrator.html#acf3da51d0663999bc5782a294c30797a">Integrator</a>.</p>
 
@@ -208,7 +236,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 7 2013 23:48:06 for GR Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 8 2013 19:49:51 for GR Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

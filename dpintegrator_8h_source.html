@@ -93,34 +93,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"> #include &quot;<a class="code" href="numeric_8h.html" title="Base file for numerical methods.">numeric.h</a>&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="class_d_p_integrator.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_d_p_integrator.html" title="Class implementing a Dormand-Prince numerical integrator.">DPIntegrator</a> : <span class="keyword">public</span> <a class="code" href="class_integrator.html" title="Base class implementing a numerical integrator.">Integrator</a></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">double</span> maxErr;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">double</span> minStep;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">double</span> maxStep;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    StateVector lastDerivative, lastState;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="class_diff_eq.html" title="Base class for implementing differential equations.">DiffEq</a>* lastEq;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_d_p_integrator.html" title="Class implementing a Dormand-Prince numerical integrator.">DPIntegrator</a>(<span class="keywordtype">double</span> maxErr = 0.000001, <span class="keywordtype">double</span> <a class="code" href="class_integrator.html#a090e1528e266773f5fa81ffa11175cb7" title="Default step size.">stepSize</a> = 0.01);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    ~<a class="code" href="class_d_p_integrator.html" title="Class implementing a Dormand-Prince numerical integrator.">DPIntegrator</a>();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    StateVector <a class="code" href="class_d_p_integrator.html#adae3cbf61a60647610d6bb10b0172b10" title="Function returning the next value of the state.">next</a>(StateVector state, <a class="code" href="class_diff_eq.html" title="Base class for implementing differential equations.">DiffEq</a>* equation, <span class="keywordtype">double</span> step = 0.0);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">double</span> getMaxErr();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">double</span> getMinStep();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">double</span> getMaxStep();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> setMaxErr(<span class="keywordtype">double</span>);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> setMinStep(<span class="keywordtype">double</span>);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> setMaxStep(<span class="keywordtype">double</span>);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="class_d_p_integrator.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_d_p_integrator.html" title="Class implementing a Dormand-Prince numerical integrator.">DPIntegrator</a> : <span class="keyword">public</span> <a class="code" href="class_integrator.html" title="Base class implementing a numerical integrator.">Integrator</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">double</span> maxErr;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">double</span> minStep;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">double</span> maxStep;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    StateVector lastDerivative, lastState;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_diff_eq.html" title="Base class for implementing differential equations.">DiffEq</a>* lastEq;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="class_d_p_integrator.html#a310dbeef8e2bd8a174785008a636b8dc" title="Constructor.">DPIntegrator</a>(<span class="keywordtype">double</span> maxErr = 0.000001, <span class="keywordtype">double</span> <a class="code" href="class_integrator.html#a090e1528e266773f5fa81ffa11175cb7" title="Default step size.">stepSize</a> = 0.01, <span class="keywordtype">double</span> minStep = 0.0001, <span class="keywordtype">double</span> maxStep = 0.1);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="class_d_p_integrator.html#a77caf66e8868c4d49cd94f88ba7c4dff" title="Destructor.">~DPIntegrator</a>();</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    StateVector <a class="code" href="class_d_p_integrator.html#adae3cbf61a60647610d6bb10b0172b10" title="Function calculating the next state.">next</a>(StateVector state, <a class="code" href="class_diff_eq.html" title="Base class for implementing differential equations.">DiffEq</a>* equation, <span class="keywordtype">double</span> step = 0.0);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_d_p_integrator.html#a32bd354cd3ecc8ecf61fed04ab2054b4" title="Returns the error margin.">getMaxErr</a>();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_d_p_integrator.html#a4d0aa720e00f02cdb69b99e44ae62818" title="Returns the minimal step size.">getMinStep</a>();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_d_p_integrator.html#a2f4c2bf5c8fcf3e16c734c0626152b82" title="Returns the maximal step size.">getMaxStep</a>();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_d_p_integrator.html#a5f28ce0ab2b41fe138453e436ad14774" title="Sets the error margin.">setMaxErr</a>(<span class="keywordtype">double</span>);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_d_p_integrator.html#ad01df6c410d3c2521fd7671dc5348ea0" title="Sets the minimal step size.">setMinStep</a>(<span class="keywordtype">double</span>);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_d_p_integrator.html#a63fb708caa87356663e98608a8722760" title="Sets the maximal step size.">setMaxStep</a>(<span class="keywordtype">double</span>);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;};</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 7 2013 23:48:06 for GR Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 8 2013 19:49:51 for GR Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

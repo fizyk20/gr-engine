@@ -90,7 +90,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>Class representing an entity with defined position, 4-velocity and local basis (orientation) Inherits <a class="el" href="class_particle.html" title="Class representing a particle with defined position and 4-velocity Inherits DiffEq for solving of the...">Particle</a>.  
+<p>Class representing an entity with defined position and local basis, consisting of 4-velocity and 3 spatial directions.  
  <a href="class_entity.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="entity_8h_source.html">entity.h</a>&gt;</code></p>
@@ -100,73 +100,89 @@ Inheritance diagram for Entity:</div>
  <div class="center">
   <img src="class_entity.png" usemap="#Entity_map" alt=""/>
   <map id="Entity_map" name="Entity_map">
-<area href="class_particle.html" title="Class representing a particle with defined position and 4-velocity Inherits DiffEq for solving of the..." alt="Particle" shape="rect" coords="0,56,55,80"/>
+<area href="class_particle.html" title="Class representing a particle with defined position and 4-velocity." alt="Particle" shape="rect" coords="0,56,55,80"/>
 <area href="class_diff_eq.html" title="Base class for implementing differential equations." alt="DiffEq" shape="rect" coords="0,0,55,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a78947af51f5ed8ded9c3e6b0b9f91716"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a78947af51f5ed8ded9c3e6b0b9f91716"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Entity</b> (<a class="el" href="class_manifold.html">Manifold</a> *, <a class="el" href="class_point.html">Point</a>, <a class="el" href="classvector4.html">vector4</a>, <a class="el" href="classvector4.html">vector4</a>, <a class="el" href="classvector4.html">vector4</a>, <a class="el" href="classvector4.html">vector4</a>)</td></tr>
-<tr class="separator:a78947af51f5ed8ded9c3e6b0b9f91716"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a698a7cac5d186c954125e00383a6f51e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a698a7cac5d186c954125e00383a6f51e"></a>
-<a class="el" href="classvector4.html">vector4</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getStateVector</b> (int)</td></tr>
-<tr class="separator:a698a7cac5d186c954125e00383a6f51e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab2c7ce494ca1ef346bb32c003ce5a17"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#aab2c7ce494ca1ef346bb32c003ce5a17">Entity</a> (<a class="el" href="class_manifold.html">Manifold</a> *_m, <a class="el" href="class_point.html">Point</a> _p, <a class="el" href="classvector4.html">vector4</a> _u, <a class="el" href="classvector4.html">vector4</a> _x, <a class="el" href="classvector4.html">vector4</a> _y, <a class="el" href="classvector4.html">vector4</a> _z)</td></tr>
+<tr class="memdesc:aab2c7ce494ca1ef346bb32c003ce5a17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#aab2c7ce494ca1ef346bb32c003ce5a17">More...</a><br/></td></tr>
+<tr class="separator:aab2c7ce494ca1ef346bb32c003ce5a17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf6d3f7cb1b2ba029b6b048a395cc8ae"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adf6d3f7cb1b2ba029b6b048a395cc8ae"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#adf6d3f7cb1b2ba029b6b048a395cc8ae">~Entity</a> ()</td></tr>
+<tr class="memdesc:adf6d3f7cb1b2ba029b6b048a395cc8ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
+<tr class="separator:adf6d3f7cb1b2ba029b6b048a395cc8ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6133854ec53175c3fd28bdf8a614a73d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvector4.html">vector4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a6133854ec53175c3fd28bdf8a614a73d">getStateVector</a> (int i)</td></tr>
+<tr class="memdesc:a6133854ec53175c3fd28bdf8a614a73d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a component of the local basis.  <a href="#a6133854ec53175c3fd28bdf8a614a73d">More...</a><br/></td></tr>
+<tr class="separator:a6133854ec53175c3fd28bdf8a614a73d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a968521e9a16368428333e7d8151bb66f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a968521e9a16368428333e7d8151bb66f"></a>
-<a class="el" href="classvector4.html">vector4</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getX</b> ()</td></tr>
+<a class="el" href="classvector4.html">vector4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a968521e9a16368428333e7d8151bb66f">getX</a> ()</td></tr>
+<tr class="memdesc:a968521e9a16368428333e7d8151bb66f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the local X direction. <br/></td></tr>
 <tr class="separator:a968521e9a16368428333e7d8151bb66f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa72aa0acbf824c023bab836c053cc40"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afa72aa0acbf824c023bab836c053cc40"></a>
-<a class="el" href="classvector4.html">vector4</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getY</b> ()</td></tr>
+<a class="el" href="classvector4.html">vector4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#afa72aa0acbf824c023bab836c053cc40">getY</a> ()</td></tr>
+<tr class="memdesc:afa72aa0acbf824c023bab836c053cc40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the local Y direction. <br/></td></tr>
 <tr class="separator:afa72aa0acbf824c023bab836c053cc40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ac1d405c81efb9ab42267b5bf2c958a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6ac1d405c81efb9ab42267b5bf2c958a"></a>
-<a class="el" href="classvector4.html">vector4</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getZ</b> ()</td></tr>
+<a class="el" href="classvector4.html">vector4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a6ac1d405c81efb9ab42267b5bf2c958a">getZ</a> ()</td></tr>
+<tr class="memdesc:a6ac1d405c81efb9ab42267b5bf2c958a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the local Z direction. <br/></td></tr>
 <tr class="separator:a6ac1d405c81efb9ab42267b5bf2c958a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a560abb83e1a7378e0b005b565f48ac1a"><td class="memItemLeft" align="right" valign="top">StateVector&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a560abb83e1a7378e0b005b565f48ac1a">derivative</a> (StateVector v)</td></tr>
-<tr class="memdesc:a560abb83e1a7378e0b005b565f48ac1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual function returning the derivative based on the current state.  <a href="#a560abb83e1a7378e0b005b565f48ac1a">More...</a><br/></td></tr>
+<tr class="memdesc:a560abb83e1a7378e0b005b565f48ac1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded method from <em><a class="el" href="class_diff_eq.html" title="Base class for implementing differential equations.">DiffEq</a></em>.  <a href="#a560abb83e1a7378e0b005b565f48ac1a">More...</a><br/></td></tr>
 <tr class="separator:a560abb83e1a7378e0b005b565f48ac1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a127df22a08c36492112bf32621e83fbf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a127df22a08c36492112bf32621e83fbf"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setCoordSystem</b> (int)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a127df22a08c36492112bf32621e83fbf">setCoordSystem</a> (int)</td></tr>
+<tr class="memdesc:a127df22a08c36492112bf32621e83fbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded method changing the coordinate system in use. <br/></td></tr>
 <tr class="separator:a127df22a08c36492112bf32621e83fbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b5e4a8b3e125a30df0ea7c128014f46"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b5e4a8b3e125a30df0ea7c128014f46"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPosVel</b> (<a class="el" href="class_point.html">Point</a>, <a class="el" href="classvector4.html">vector4</a>)</td></tr>
+<tr class="memitem:a0b5e4a8b3e125a30df0ea7c128014f46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a0b5e4a8b3e125a30df0ea7c128014f46">setPosVel</a> (<a class="el" href="class_point.html">Point</a>, <a class="el" href="classvector4.html">vector4</a>)</td></tr>
+<tr class="memdesc:a0b5e4a8b3e125a30df0ea7c128014f46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the position and 4-velocity.  <a href="#a0b5e4a8b3e125a30df0ea7c128014f46">More...</a><br/></td></tr>
 <tr class="separator:a0b5e4a8b3e125a30df0ea7c128014f46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a642683dd2922037a5fcdb3f606017c43"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a642683dd2922037a5fcdb3f606017c43"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setVel</b> (<a class="el" href="classvector4.html">vector4</a>)</td></tr>
+<tr class="memitem:a642683dd2922037a5fcdb3f606017c43"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a642683dd2922037a5fcdb3f606017c43">setVel</a> (<a class="el" href="classvector4.html">vector4</a>)</td></tr>
+<tr class="memdesc:a642683dd2922037a5fcdb3f606017c43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the 4-velocity.  <a href="#a642683dd2922037a5fcdb3f606017c43">More...</a><br/></td></tr>
 <tr class="separator:a642683dd2922037a5fcdb3f606017c43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5714a237eeb15e49f4268c6dbdd1a912"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5714a237eeb15e49f4268c6dbdd1a912"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>applyForce</b> (double, double, double)</td></tr>
-<tr class="separator:a5714a237eeb15e49f4268c6dbdd1a912"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d8025e58b618120793ecc18558421d2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5d8025e58b618120793ecc18558421d2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>applyAngVel</b> (double, double, double)</td></tr>
-<tr class="separator:a5d8025e58b618120793ecc18558421d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a506d693b47812fdeec282ddf6815e861"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a506d693b47812fdeec282ddf6815e861"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>rotate</b> (double, double, double)</td></tr>
-<tr class="separator:a506d693b47812fdeec282ddf6815e861"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b74bf52ab15a5078d75dd6af48ffc54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a0b74bf52ab15a5078d75dd6af48ffc54">applyForce</a> (double x, double y, double z)</td></tr>
+<tr class="memdesc:a0b74bf52ab15a5078d75dd6af48ffc54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an acceleration to the entity.  <a href="#a0b74bf52ab15a5078d75dd6af48ffc54">More...</a><br/></td></tr>
+<tr class="separator:a0b74bf52ab15a5078d75dd6af48ffc54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeea6e77af2298258a8a77cfc1d1ed966"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#aeea6e77af2298258a8a77cfc1d1ed966">applyAngVel</a> (double x, double y, double z)</td></tr>
+<tr class="memdesc:aeea6e77af2298258a8a77cfc1d1ed966"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds angular velocity to the entity.  <a href="#aeea6e77af2298258a8a77cfc1d1ed966">More...</a><br/></td></tr>
+<tr class="separator:aeea6e77af2298258a8a77cfc1d1ed966"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6915f3e3c2ae169563f673da510c043"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#aa6915f3e3c2ae169563f673da510c043">rotate</a> (double pitch, double yaw, double roll)</td></tr>
+<tr class="memdesc:aa6915f3e3c2ae169563f673da510c043"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotates the entity.  <a href="#aa6915f3e3c2ae169563f673da510c043">More...</a><br/></td></tr>
+<tr class="separator:aa6915f3e3c2ae169563f673da510c043"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_particle"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_particle')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_particle.html">Particle</a></td></tr>
-<tr class="memitem:a9c2f11b14525aea63ab1e7eb9e2b7b82 inherit pub_methods_class_particle"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9c2f11b14525aea63ab1e7eb9e2b7b82"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Particle</b> (<a class="el" href="class_manifold.html">Manifold</a> *)</td></tr>
-<tr class="separator:a9c2f11b14525aea63ab1e7eb9e2b7b82 inherit pub_methods_class_particle"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee711d67e7cec705ad6d5a0004ae53d7 inherit pub_methods_class_particle"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aee711d67e7cec705ad6d5a0004ae53d7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Particle</b> (<a class="el" href="class_manifold.html">Manifold</a> *, <a class="el" href="class_point.html">Point</a>, <a class="el" href="classvector4.html">vector4</a>)</td></tr>
-<tr class="separator:aee711d67e7cec705ad6d5a0004ae53d7 inherit pub_methods_class_particle"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecc76cb3f48986298528928c5c968d12 inherit pub_methods_class_particle"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle.html#aecc76cb3f48986298528928c5c968d12">Particle</a> (<a class="el" href="class_manifold.html">Manifold</a> *_m)</td></tr>
+<tr class="memdesc:aecc76cb3f48986298528928c5c968d12 inherit pub_methods_class_particle"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#aecc76cb3f48986298528928c5c968d12">More...</a><br/></td></tr>
+<tr class="separator:aecc76cb3f48986298528928c5c968d12 inherit pub_methods_class_particle"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a015ecf9f5ca5b46f5fbe8757ffb05c9d inherit pub_methods_class_particle"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle.html#a015ecf9f5ca5b46f5fbe8757ffb05c9d">Particle</a> (<a class="el" href="class_manifold.html">Manifold</a> *_m, <a class="el" href="class_point.html">Point</a> _p, <a class="el" href="classvector4.html">vector4</a> _u)</td></tr>
+<tr class="memdesc:a015ecf9f5ca5b46f5fbe8757ffb05c9d inherit pub_methods_class_particle"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a015ecf9f5ca5b46f5fbe8757ffb05c9d">More...</a><br/></td></tr>
+<tr class="separator:a015ecf9f5ca5b46f5fbe8757ffb05c9d inherit pub_methods_class_particle"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad030d0fe7b88cf81744b127c99244ff4 inherit pub_methods_class_particle"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad030d0fe7b88cf81744b127c99244ff4"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle.html#ad030d0fe7b88cf81744b127c99244ff4">~Particle</a> ()</td></tr>
+<tr class="memdesc:ad030d0fe7b88cf81744b127c99244ff4 inherit pub_methods_class_particle"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
+<tr class="separator:ad030d0fe7b88cf81744b127c99244ff4 inherit pub_methods_class_particle"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a813776fe4b2eeb77ff36e01bb43a039c inherit pub_methods_class_particle"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a813776fe4b2eeb77ff36e01bb43a039c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setIntegrator</b> (<a class="el" href="class_integrator.html">Integrator</a> *)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle.html#a813776fe4b2eeb77ff36e01bb43a039c">setIntegrator</a> (<a class="el" href="class_integrator.html">Integrator</a> *)</td></tr>
+<tr class="memdesc:a813776fe4b2eeb77ff36e01bb43a039c inherit pub_methods_class_particle"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the integrator to be used for propagation. <br/></td></tr>
 <tr class="separator:a813776fe4b2eeb77ff36e01bb43a039c inherit pub_methods_class_particle"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a806a8390bb5bad7db05d12a3a8344f35 inherit pub_methods_class_particle"><td class="memItemLeft" align="right" valign="top">StateVector&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle.html#a806a8390bb5bad7db05d12a3a8344f35">derivative</a> (StateVector v)</td></tr>
-<tr class="memdesc:a806a8390bb5bad7db05d12a3a8344f35 inherit pub_methods_class_particle"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual function returning the derivative based on the current state.  <a href="#a806a8390bb5bad7db05d12a3a8344f35">More...</a><br/></td></tr>
+<tr class="memdesc:a806a8390bb5bad7db05d12a3a8344f35 inherit pub_methods_class_particle"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded method from <em><a class="el" href="class_diff_eq.html" title="Base class for implementing differential equations.">DiffEq</a></em>.  <a href="#a806a8390bb5bad7db05d12a3a8344f35">More...</a><br/></td></tr>
 <tr class="separator:a806a8390bb5bad7db05d12a3a8344f35 inherit pub_methods_class_particle"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac75fb66beefe211b06227de3be1b8ce6 inherit pub_methods_class_particle"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac75fb66beefe211b06227de3be1b8ce6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>propagate</b> (double step=0.0)</td></tr>
+<tr class="memitem:ac75fb66beefe211b06227de3be1b8ce6 inherit pub_methods_class_particle"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle.html#ac75fb66beefe211b06227de3be1b8ce6">propagate</a> (double step=0.0)</td></tr>
+<tr class="memdesc:ac75fb66beefe211b06227de3be1b8ce6 inherit pub_methods_class_particle"><td class="mdescLeft">&#160;</td><td class="mdescRight">Propagates the particle.  <a href="#ac75fb66beefe211b06227de3be1b8ce6">More...</a><br/></td></tr>
 <tr class="separator:ac75fb66beefe211b06227de3be1b8ce6 inherit pub_methods_class_particle"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a4acb436bfa5a0a2887c7e2c42226f2 inherit pub_methods_class_particle"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0a4acb436bfa5a0a2887c7e2c42226f2"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getCoordSystem</b> ()</td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle.html#a0a4acb436bfa5a0a2887c7e2c42226f2">getCoordSystem</a> ()</td></tr>
+<tr class="memdesc:a0a4acb436bfa5a0a2887c7e2c42226f2 inherit pub_methods_class_particle"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current coordinate system in use. <br/></td></tr>
 <tr class="separator:a0a4acb436bfa5a0a2887c7e2c42226f2 inherit pub_methods_class_particle"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a993cce16cfd94714f952f6e2d061f274 inherit pub_methods_class_particle"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a993cce16cfd94714f952f6e2d061f274"></a>
-<a class="el" href="class_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getPos</b> ()</td></tr>
+<a class="el" href="class_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle.html#a993cce16cfd94714f952f6e2d061f274">getPos</a> ()</td></tr>
+<tr class="memdesc:a993cce16cfd94714f952f6e2d061f274 inherit pub_methods_class_particle"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the position. <br/></td></tr>
 <tr class="separator:a993cce16cfd94714f952f6e2d061f274 inherit pub_methods_class_particle"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f75658d893c07bc9fc3fac44bc7b57b inherit pub_methods_class_particle"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5f75658d893c07bc9fc3fac44bc7b57b"></a>
-<a class="el" href="classvector4.html">vector4</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getVel</b> ()</td></tr>
+<a class="el" href="classvector4.html">vector4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle.html#a5f75658d893c07bc9fc3fac44bc7b57b">getVel</a> ()</td></tr>
+<tr class="memdesc:a5f75658d893c07bc9fc3fac44bc7b57b inherit pub_methods_class_particle"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the 4-velocity. <br/></td></tr>
 <tr class="separator:a5f75658d893c07bc9fc3fac44bc7b57b inherit pub_methods_class_particle"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_diff_eq"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_diff_eq')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_diff_eq.html">DiffEq</a></td></tr>
 <tr class="memitem:a2635cb2b4e2a3cfcb9eebe27b8169d96 inherit pub_methods_class_diff_eq"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2635cb2b4e2a3cfcb9eebe27b8169d96"></a>
@@ -195,8 +211,158 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a8da191eef7e13be6b9e84378ccc8a0d8 inherit pro_attribs_class_particle"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class representing an entity with defined position, 4-velocity and local basis (orientation) Inherits <a class="el" href="class_particle.html" title="Class representing a particle with defined position and 4-velocity Inherits DiffEq for solving of the...">Particle</a>. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+<div class="textblock"><p>Class representing an entity with defined position and local basis, consisting of 4-velocity and 3 spatial directions. </p>
+<p>The entity can be accelerated and rotated. Inherits <a class="el" href="class_particle.html" title="Class representing a particle with defined position and 4-velocity.">Particle</a>. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="aab2c7ce494ca1ef346bb32c003ce5a17"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Entity::Entity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_manifold.html">Manifold</a> *&#160;</td>
+          <td class="paramname"><em>_m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_point.html">Point</a>&#160;</td>
+          <td class="paramname"><em>_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classvector4.html">vector4</a>&#160;</td>
+          <td class="paramname"><em>_u</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classvector4.html">vector4</a>&#160;</td>
+          <td class="paramname"><em>_x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classvector4.html">vector4</a>&#160;</td>
+          <td class="paramname"><em>_y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classvector4.html">vector4</a>&#160;</td>
+          <td class="paramname"><em>_z</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+<p>Initializes the entity with the manifold, position and local basis. The local basis is then orthonormalized (preserving the direction of the 4-velocity). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_m</td><td>The manifold to be used </td></tr>
+    <tr><td class="paramname">_p</td><td>Initial position </td></tr>
+    <tr><td class="paramname">_u</td><td>Initial 4-velocity </td></tr>
+    <tr><td class="paramname">_x</td><td>Initial local X direction </td></tr>
+    <tr><td class="paramname">_y</td><td>Initial local Y direction </td></tr>
+    <tr><td class="paramname">_z</td><td>Initial local Z direction </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="aeea6e77af2298258a8a77cfc1d1ed966"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Entity::applyAngVel </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>z</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds angular velocity to the entity. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Local X component </td></tr>
+    <tr><td class="paramname">y</td><td>Local Y component </td></tr>
+    <tr><td class="paramname">z</td><td>Local Z component </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a0b74bf52ab15a5078d75dd6af48ffc54"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Entity::applyForce </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>z</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds an acceleration to the entity. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Local X component </td></tr>
+    <tr><td class="paramname">y</td><td>Local Y component </td></tr>
+    <tr><td class="paramname">z</td><td>Local Z component </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a560abb83e1a7378e0b005b565f48ac1a"></a>
 <div class="memitem">
 <div class="memproto">
@@ -219,16 +385,161 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Pure virtual function returning the derivative based on the current state. </p>
+<p>Overloaded method from <em><a class="el" href="class_diff_eq.html" title="Base class for implementing differential equations.">DiffEq</a></em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">v</td><td>Current state. </td></tr>
+    <tr><td class="paramname">v</td><td>Current state </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>StateVector which contains the derivatives of the components of the state. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The derivative of the current state as given by the Fermi-Walker transport. </dd></dl>
 
 <p>Implements <a class="el" href="class_diff_eq.html#a707d2fc532b711b090048c7477324308">DiffEq</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6133854ec53175c3fd28bdf8a614a73d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classvector4.html">vector4</a> Entity::getStateVector </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a component of the local basis. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>The number of the component (0 - 4-velocity etc, 1 - local X, 2 - local Y, 3 - local Z) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aa6915f3e3c2ae169563f673da510c043"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Entity::rotate </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>pitch</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>yaw</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>roll</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Rotates the entity. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pitch</td><td>Rotation pitch angle </td></tr>
+    <tr><td class="paramname">yaw</td><td>Rotation yaw angle </td></tr>
+    <tr><td class="paramname">roll</td><td>Rotation roll angle </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a0b5e4a8b3e125a30df0ea7c128014f46"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Entity::setPosVel </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_point.html">Point</a>&#160;</td>
+          <td class="paramname"><em>_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classvector4.html">vector4</a>&#160;</td>
+          <td class="paramname"><em>_u</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Changes the position and 4-velocity. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_p</td><td>The new position </td></tr>
+    <tr><td class="paramname">_u</td><td>The new 4-velocity </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented from <a class="el" href="class_particle.html#a40b4aa4d3d9c6ddb6e3699f3babf3480">Particle</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a642683dd2922037a5fcdb3f606017c43"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Entity::setVel </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classvector4.html">vector4</a>&#160;</td>
+          <td class="paramname"><em>_u</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Changes the 4-velocity. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_u</td><td>The new 4-velocity </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented from <a class="el" href="class_particle.html#ab4d54f2301d607ee9b878b2a23463293">Particle</a>.</p>
 
 </div>
 </div>
@@ -239,7 +550,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 7 2013 23:48:06 for GR Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 8 2013 19:49:51 for GR Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

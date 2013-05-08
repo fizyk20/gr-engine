@@ -106,29 +106,39 @@ Inheritance diagram for DPIntegrator:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aae0316ab780321d5ba43003640098344"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aae0316ab780321d5ba43003640098344"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DPIntegrator</b> (double maxErr=0.000001, double <a class="el" href="class_integrator.html#a090e1528e266773f5fa81ffa11175cb7">stepSize</a>=0.01)</td></tr>
-<tr class="separator:aae0316ab780321d5ba43003640098344"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a310dbeef8e2bd8a174785008a636b8dc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_p_integrator.html#a310dbeef8e2bd8a174785008a636b8dc">DPIntegrator</a> (double maxErr=0.000001, double <a class="el" href="class_integrator.html#a090e1528e266773f5fa81ffa11175cb7">stepSize</a>=0.01, double minStep=0.0001, double maxStep=0.1)</td></tr>
+<tr class="memdesc:a310dbeef8e2bd8a174785008a636b8dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a310dbeef8e2bd8a174785008a636b8dc">More...</a><br/></td></tr>
+<tr class="separator:a310dbeef8e2bd8a174785008a636b8dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77caf66e8868c4d49cd94f88ba7c4dff"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a77caf66e8868c4d49cd94f88ba7c4dff"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_p_integrator.html#a77caf66e8868c4d49cd94f88ba7c4dff">~DPIntegrator</a> ()</td></tr>
+<tr class="memdesc:a77caf66e8868c4d49cd94f88ba7c4dff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
+<tr class="separator:a77caf66e8868c4d49cd94f88ba7c4dff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adae3cbf61a60647610d6bb10b0172b10"><td class="memItemLeft" align="right" valign="top">StateVector&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_p_integrator.html#adae3cbf61a60647610d6bb10b0172b10">next</a> (StateVector state, <a class="el" href="class_diff_eq.html">DiffEq</a> *equation, double step=0.0)</td></tr>
-<tr class="memdesc:adae3cbf61a60647610d6bb10b0172b10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function returning the next value of the state.  <a href="#adae3cbf61a60647610d6bb10b0172b10">More...</a><br/></td></tr>
+<tr class="memdesc:adae3cbf61a60647610d6bb10b0172b10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function calculating the next state.  <a href="#adae3cbf61a60647610d6bb10b0172b10">More...</a><br/></td></tr>
 <tr class="separator:adae3cbf61a60647610d6bb10b0172b10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32bd354cd3ecc8ecf61fed04ab2054b4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a32bd354cd3ecc8ecf61fed04ab2054b4"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getMaxErr</b> ()</td></tr>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_p_integrator.html#a32bd354cd3ecc8ecf61fed04ab2054b4">getMaxErr</a> ()</td></tr>
+<tr class="memdesc:a32bd354cd3ecc8ecf61fed04ab2054b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the error margin. <br/></td></tr>
 <tr class="separator:a32bd354cd3ecc8ecf61fed04ab2054b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d0aa720e00f02cdb69b99e44ae62818"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4d0aa720e00f02cdb69b99e44ae62818"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getMinStep</b> ()</td></tr>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_p_integrator.html#a4d0aa720e00f02cdb69b99e44ae62818">getMinStep</a> ()</td></tr>
+<tr class="memdesc:a4d0aa720e00f02cdb69b99e44ae62818"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the minimal step size. <br/></td></tr>
 <tr class="separator:a4d0aa720e00f02cdb69b99e44ae62818"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f4c2bf5c8fcf3e16c734c0626152b82"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2f4c2bf5c8fcf3e16c734c0626152b82"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getMaxStep</b> ()</td></tr>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_p_integrator.html#a2f4c2bf5c8fcf3e16c734c0626152b82">getMaxStep</a> ()</td></tr>
+<tr class="memdesc:a2f4c2bf5c8fcf3e16c734c0626152b82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the maximal step size. <br/></td></tr>
 <tr class="separator:a2f4c2bf5c8fcf3e16c734c0626152b82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f28ce0ab2b41fe138453e436ad14774"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5f28ce0ab2b41fe138453e436ad14774"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaxErr</b> (double)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_p_integrator.html#a5f28ce0ab2b41fe138453e436ad14774">setMaxErr</a> (double)</td></tr>
+<tr class="memdesc:a5f28ce0ab2b41fe138453e436ad14774"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the error margin. <br/></td></tr>
 <tr class="separator:a5f28ce0ab2b41fe138453e436ad14774"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad01df6c410d3c2521fd7671dc5348ea0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad01df6c410d3c2521fd7671dc5348ea0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setMinStep</b> (double)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_p_integrator.html#ad01df6c410d3c2521fd7671dc5348ea0">setMinStep</a> (double)</td></tr>
+<tr class="memdesc:ad01df6c410d3c2521fd7671dc5348ea0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the minimal step size. <br/></td></tr>
 <tr class="separator:ad01df6c410d3c2521fd7671dc5348ea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63fb708caa87356663e98608a8722760"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a63fb708caa87356663e98608a8722760"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaxStep</b> (double)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_p_integrator.html#a63fb708caa87356663e98608a8722760">setMaxStep</a> (double)</td></tr>
+<tr class="memdesc:a63fb708caa87356663e98608a8722760"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the maximal step size. <br/></td></tr>
 <tr class="separator:a63fb708caa87356663e98608a8722760"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_integrator"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_integrator')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_integrator.html">Integrator</a></td></tr>
 <tr class="memitem:a4e3ab07d8147f61e36a1dbdb5777bd8d inherit pub_methods_class_integrator"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_integrator.html#a4e3ab07d8147f61e36a1dbdb5777bd8d">Integrator</a> (double <a class="el" href="class_integrator.html#a090e1528e266773f5fa81ffa11175cb7">stepSize</a>=0.01)</td></tr>
@@ -165,7 +175,58 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class implementing a Dormand-Prince numerical integrator. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+<p>The Dormand-Prince method is an adaptive method. After each step the step size is recalculated, so that the error will be just below the predefined error margin. The minimal and maximal step size can also be set. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a310dbeef8e2bd8a174785008a636b8dc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DPIntegrator::DPIntegrator </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>maxErr</em> = <code>0.000001</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>stepSize</em> = <code>0.01</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>minStep</em> = <code>0.0001</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>maxStep</em> = <code>0.1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">maxErr</td><td>The error margin - if the error is larger than this margin, the step size is decreased. </td></tr>
+    <tr><td class="paramname">stepSize</td><td>Default step size </td></tr>
+    <tr><td class="paramname">minStep</td><td>Minimal step size </td></tr>
+    <tr><td class="paramname">maxStep</td><td>Maximal step size </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="adae3cbf61a60647610d6bb10b0172b10"></a>
 <div class="memitem">
 <div class="memproto">
@@ -204,16 +265,15 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </table>
 </div><div class="memdoc">
 
-<p>Function returning the next value of the state. </p>
+<p>Function calculating the next state. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">state</td><td>Initial state </td></tr>
-    <tr><td class="paramname">equation</td><td>Differential equation to be used for propagation </td></tr>
-    <tr><td class="paramname">step</td><td>Step size. Defaults to 0.0. </td></tr>
+    <tr><td class="paramname">state</td><td>Current state </td></tr>
+    <tr><td class="paramname">equation</td><td>The differential equation to be used </td></tr>
+    <tr><td class="paramname">step</td><td>Step size. If 0 (default), the default step size is used. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Next value of the state vector. </dd></dl>
 
 <p>Implements <a class="el" href="class_integrator.html#acf3da51d0663999bc5782a294c30797a">Integrator</a>.</p>
 
@@ -226,7 +286,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 7 2013 23:48:06 for GR Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 8 2013 19:49:51 for GR Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

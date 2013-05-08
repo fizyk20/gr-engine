@@ -96,17 +96,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="class_r_k4_integrator.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_r_k4_integrator.html" title="Class implementing an RK4 numerical integrator.">RK4Integrator</a> : <span class="keyword">public</span> <a class="code" href="class_integrator.html" title="Base class implementing a numerical integrator.">Integrator</a></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="class_r_k4_integrator.html" title="Class implementing an RK4 numerical integrator.">RK4Integrator</a>(<span class="keywordtype">double</span> <a class="code" href="class_integrator.html#a090e1528e266773f5fa81ffa11175cb7" title="Default step size.">stepSize</a> = 0.01);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    ~<a class="code" href="class_r_k4_integrator.html" title="Class implementing an RK4 numerical integrator.">RK4Integrator</a>();</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    StateVector <a class="code" href="class_r_k4_integrator.html#aee065011b070a3e6a9df7d9d6226cff1" title="Function returning the next value of the state.">next</a>(StateVector state, <a class="code" href="class_diff_eq.html" title="Base class for implementing differential equations.">DiffEq</a>* equation, <span class="keywordtype">double</span> step = 0.0);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="class_r_k4_integrator.html#ae06993cb16520db8df1f6608bd47e0aa" title="Constructor.">RK4Integrator</a>(<span class="keywordtype">double</span> <a class="code" href="class_integrator.html#a090e1528e266773f5fa81ffa11175cb7" title="Default step size.">stepSize</a> = 0.01);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="class_r_k4_integrator.html#a0d16eec8062c63dd870f17a5643c58e6" title="Destructor.">~RK4Integrator</a>();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    StateVector <a class="code" href="class_r_k4_integrator.html#aee065011b070a3e6a9df7d9d6226cff1" title="Function calculating the next state.">next</a>(StateVector state, <a class="code" href="class_diff_eq.html" title="Base class for implementing differential equations.">DiffEq</a>* equation, <span class="keywordtype">double</span> step = 0.0);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;};</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 7 2013 23:48:06 for GR Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 8 2013 19:49:51 for GR Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

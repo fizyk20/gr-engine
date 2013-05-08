@@ -94,45 +94,51 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="geometry_8h.html" title="Basic geometry classes.">geometry.h</a>&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="numeric_8h.html" title="Base file for numerical methods.">numeric.h</a>&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="class_particle.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_particle.html" title="Class representing a particle with defined position and 4-velocity Inherits DiffEq for solving of the...">Particle</a> : <span class="keyword">public</span> <a class="code" href="class_diff_eq.html" title="Base class for implementing differential equations.">DiffEq</a></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="class_point.html" title="A point on a manifold.">Point</a> p;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="classvector4.html" title="A 4-dimensional tangent vector.">vector4</a> u;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="class_manifold.html" title="Class representing a manifold with different coordinate systems and metrics.">Manifold</a>* m;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">virtual</span> StateVector constructState();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setState(StateVector);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_point.html" title="A point on a manifold.">Point</a> getPosFromState(StateVector);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classvector4.html" title="A 4-dimensional tangent vector.">vector4</a> getVelFromState(StateVector);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="class_integrator.html" title="Base class implementing a numerical integrator.">Integrator</a>* integrator;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="class_particle.html" title="Class representing a particle with defined position and 4-velocity Inherits DiffEq for solving of the...">Particle</a>(<a class="code" href="class_manifold.html" title="Class representing a manifold with different coordinate systems and metrics.">Manifold</a>*);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="class_particle.html" title="Class representing a particle with defined position and 4-velocity Inherits DiffEq for solving of the...">Particle</a>(<a class="code" href="class_manifold.html" title="Class representing a manifold with different coordinate systems and metrics.">Manifold</a>*, <a class="code" href="class_point.html" title="A point on a manifold.">Point</a>, <a class="code" href="classvector4.html" title="A 4-dimensional tangent vector.">vector4</a>);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_particle.html" title="Class representing a particle with defined position and 4-velocity Inherits DiffEq for solving of the...">Particle</a>();</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> setIntegrator(<a class="code" href="class_integrator.html" title="Base class implementing a numerical integrator.">Integrator</a>*);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    StateVector <a class="code" href="class_particle.html#a806a8390bb5bad7db05d12a3a8344f35" title="Pure virtual function returning the derivative based on the current state.">derivative</a>(StateVector v);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> propagate(<span class="keywordtype">double</span> step = 0.0);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">int</span> getCoordSystem();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setCoordSystem(<span class="keywordtype">int</span>);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="class_point.html" title="A point on a manifold.">Point</a> getPos();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="classvector4.html" title="A 4-dimensional tangent vector.">vector4</a> getVel();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setPosVel(<a class="code" href="class_point.html" title="A point on a manifold.">Point</a>, <a class="code" href="classvector4.html" title="A 4-dimensional tangent vector.">vector4</a>);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setVel(<a class="code" href="classvector4.html" title="A 4-dimensional tangent vector.">vector4</a>);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="class_particle.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_particle.html" title="Class representing a particle with defined position and 4-velocity.">Particle</a> : <span class="keyword">public</span> <a class="code" href="class_diff_eq.html" title="Base class for implementing differential equations.">DiffEq</a></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="class_point.html" title="A point on a manifold.">Point</a> p;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="classvector4.html" title="A 4-dimensional tangent vector.">vector4</a> u;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="class_manifold.html" title="Class representing a manifold with different coordinate systems and metrics.">Manifold</a>* m;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">virtual</span> StateVector <a class="code" href="class_particle.html#ab4abc3d0c3876a692607f935cf63a6ff" title="Constructs a state vector from the internal state.">constructState</a>();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_particle.html#a14fbbbd3aa604ccd9b65bed84fba1d36" title="Sets the internal state to a state represented by a StateVector.">setState</a>(StateVector);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_point.html" title="A point on a manifold.">Point</a> <a class="code" href="class_particle.html#a172c2b6dc9e91b8b2455bac60c199bbe" title="Reads the position from a StateVector.">getPosFromState</a>(StateVector);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classvector4.html" title="A 4-dimensional tangent vector.">vector4</a> <a class="code" href="class_particle.html#a993abec6eb2d9acbf37c6c0fb15a8a2f" title="Reads the 4-velocity from a StateVector.">getVelFromState</a>(StateVector);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="class_integrator.html" title="Base class implementing a numerical integrator.">Integrator</a>* integrator;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="class_particle.html#aecc76cb3f48986298528928c5c968d12" title="Constructor.">Particle</a>(<a class="code" href="class_manifold.html" title="Class representing a manifold with different coordinate systems and metrics.">Manifold</a>* _m);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="class_particle.html#aecc76cb3f48986298528928c5c968d12" title="Constructor.">Particle</a>(<a class="code" href="class_manifold.html" title="Class representing a manifold with different coordinate systems and metrics.">Manifold</a>* _m, <a class="code" href="class_point.html" title="A point on a manifold.">Point</a> _p, <a class="code" href="classvector4.html" title="A 4-dimensional tangent vector.">vector4</a> _u);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_particle.html#ad030d0fe7b88cf81744b127c99244ff4" title="Destructor.">~Particle</a>();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_particle.html#a813776fe4b2eeb77ff36e01bb43a039c" title="Sets the integrator to be used for propagation.">setIntegrator</a>(<a class="code" href="class_integrator.html" title="Base class implementing a numerical integrator.">Integrator</a>*);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    StateVector <a class="code" href="class_particle.html#a806a8390bb5bad7db05d12a3a8344f35" title="Overloaded method from DiffEq.">derivative</a>(StateVector v);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_particle.html#ac75fb66beefe211b06227de3be1b8ce6" title="Propagates the particle.">propagate</a>(<span class="keywordtype">double</span> step = 0.0);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_particle.html#a0a4acb436bfa5a0a2887c7e2c42226f2" title="Returns the current coordinate system in use.">getCoordSystem</a>();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_particle.html#a2be1722aaba62a8c400b216e097110a7" title="Changes the coordinate system in use.">setCoordSystem</a>(<span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="class_point.html" title="A point on a manifold.">Point</a> <a class="code" href="class_particle.html#a993cce16cfd94714f952f6e2d061f274" title="Returns the position.">getPos</a>();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="classvector4.html" title="A 4-dimensional tangent vector.">vector4</a> <a class="code" href="class_particle.html#a5f75658d893c07bc9fc3fac44bc7b57b" title="Returns the 4-velocity.">getVel</a>();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_particle.html#a40b4aa4d3d9c6ddb6e3699f3babf3480" title="Changes the position and 4-velocity.">setPosVel</a>(<a class="code" href="class_point.html" title="A point on a manifold.">Point</a> _p, <a class="code" href="classvector4.html" title="A 4-dimensional tangent vector.">vector4</a> _u);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_particle.html#ab4d54f2301d607ee9b878b2a23463293" title="Changes the 4-velocity.">setVel</a>(<a class="code" href="classvector4.html" title="A 4-dimensional tangent vector.">vector4</a> _u);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;};</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 7 2013 23:48:06 for GR Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 8 2013 19:49:51 for GR Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>
