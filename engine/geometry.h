@@ -129,16 +129,12 @@ public:
 	
 	//! Conversion of a point
 	/*! This method converts a single point to a different coordinate system.
-	 *
-	 *  Pure virtual - to be overloaded in child classes.
 	 *  \param p Point to be converted
 	 *  \return Converted point
 	 */
 	virtual Point convertPoint(Point p) = 0;
 	//! Jacobian of the conversion
 	/*! This method returns the jacobian (matrix of partial derivatives) of the transformation between coordinate systems.
-	 *
-	 *  Pure virtual - to be overloaded in child classes.
 	 *  \param i The number of the row
 	 *  \param j The number of the column
 	 *  \param p The point at which the jacobian is calculated
@@ -147,8 +143,6 @@ public:
 	virtual double jacobian(int i, int j, Point p) = 0;
 	//! Inverse jacobian of the conversion
 	/*! This method returns the inverse jacobian (matrix of partial derivatives) of the transformation between coordinate systems.
-	 *
-	 *  Pure virtual - to be overloaded in child classes.
 	 *  \param i The number of the row
 	 *  \param j The number of the column
 	 *  \param p The point at which the jacobian is calculated
@@ -222,8 +216,6 @@ protected:
 	
 	//! Component of the metric
 	/*! Function calculating a component of the metric.
-	 *
-	 *  Pure virtual - to be overloaded in child classes.
 	 *  \param i First index of the component
 	 *  \param j Second index of the component
 	 *  \param p The point at which the component is evaluated
@@ -232,8 +224,6 @@ protected:
 	virtual double _g(int i, int j, Point p) = 0;
 	//! Component of the inverse metric
 	/*! Function calculating a component of the inverse metric.
-	 *
-	 *  Pure virtual - to be overloaded in child classes.
 	 *  \param i First index of the component
 	 *  \param j Second index of the component
 	 *  \param p The point at which the component is evaluated
@@ -242,8 +232,6 @@ protected:
 	virtual double _invg(int i, int j, Point p) = 0;
 	//! Component of the Christoffel symbol
 	/*! Function calculating a component of the Christoffel symbol.
-	 *
-	 *  Pure virtual - to be overloaded in child classes.
 	 *  \param i First index of the component
 	 *  \param j Second index of the component
 	 *  \param k Third index of the component
