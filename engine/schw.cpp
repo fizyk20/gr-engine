@@ -74,6 +74,7 @@ int SchwManifold::recommendCoordSystem(Point p)
 		if(l > 0.07) return EF;
 		else return p.getCoordSystem();
 	}
+	return -1;	//at this point apparently the point's coord system is invalid
 }
 
 /*

@@ -27,7 +27,7 @@ StateVector operator+(const StateVector& arg1, const StateVector& arg2)
 	if(arg1.size() != arg2.size())
 		throw StateLengthError();
 		
-	int i;
+	unsigned i;
 	StateVector result;
 	for(i = 0; i < arg1.size(); i++)
 		result.push_back(arg1[i] + arg2[i]);
@@ -40,7 +40,7 @@ StateVector operator-(const StateVector& arg1, const StateVector& arg2)
 	if(arg1.size() != arg2.size())
 		throw StateLengthError();
 		
-	int i;
+	unsigned i;
 	StateVector result;
 	for(i = 0; i < arg1.size(); i++)
 		result.push_back(arg1[i] - arg2[i]);
@@ -50,7 +50,7 @@ StateVector operator-(const StateVector& arg1, const StateVector& arg2)
 
 StateVector operator*(const StateVector& arg1, double arg2)
 {	
-	int i;
+	unsigned i;
 	StateVector result;
 	for(i = 0; i < arg1.size(); i++)
 		result.push_back(arg1[i]*arg2);
@@ -60,7 +60,7 @@ StateVector operator*(const StateVector& arg1, double arg2)
 
 StateVector operator*(double arg, const StateVector& arg2)
 {	
-	int i;
+	unsigned i;
 	StateVector result;
 	for(i = 0; i < arg2.size(); i++)
 		result.push_back(arg2[i]*arg);
@@ -70,7 +70,7 @@ StateVector operator*(double arg, const StateVector& arg2)
 
 StateVector operator/(const StateVector& arg1, double arg2)
 {	
-	int i;
+	unsigned i;
 	StateVector result;
 	for(i = 0; i < arg1.size(); i++)
 		result.push_back(arg1[i]/arg2);
@@ -80,7 +80,7 @@ StateVector operator/(const StateVector& arg1, double arg2)
 
 double abs(StateVector arg)
 {
-	int i;
+	unsigned i;
 	double result = 0.0;
 	for(i = 0; i < arg.size(); i++)
 		result += arg[i]*arg[i];
