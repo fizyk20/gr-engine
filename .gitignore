@@ -13,3 +13,5 @@
 *.a
 
 html/
+bhs-sim
+Makefile
