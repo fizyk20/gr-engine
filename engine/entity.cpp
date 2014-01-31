@@ -123,7 +123,7 @@ vector4 Entity::getVectorFromState(StateVector v, int component)
 {
 	vector4 result;
 	for(int i=0; i<4; i++)
-		result[i] = v[i+4*component];
+		result[i] = v[i+4*(component+1)];
 		
 	return result;
 }
