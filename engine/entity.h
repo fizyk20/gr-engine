@@ -104,6 +104,9 @@ public:
 	 *  \param roll Rotation roll angle
 	 */
 	void rotate(double pitch, double yaw, double roll);
+	
+	//! Overloaded Particle::propagate, zeroing force and ang-vel after each step
+	void propagate(double step=0.0);
 };
 
 #endif

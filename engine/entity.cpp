@@ -12,6 +12,9 @@ Entity::Entity(Manifold* _m, Point _p, vector4 _u, vector4 _x, vector4 _y, vecto
 	basis[1] = _y;
 	basis[2] = _z;
 	
+	force[0] = force[1] = force[2] = 0.0;
+	angvel[0] = angvel[1] = angvel[2] = 0.0;
+	
 	orthonormalize();
 }
 
@@ -190,5 +193,39 @@ StateVector Entity::derivative(StateVector v)
 	}
 		
 	return result;
+}
+
+void Entity::applyForce(double x, double y, double z)
+{
+	force[0] += x;
+	force[1] += y;
+	force[2] += z;
+}
+
+void Entity::applyAngVel(double x, double y, double z)
+{
+	angvel[0] += x;
+	angvel[1] += y;
+	angvel[2] += z;
+}
+
+void Entity::rotate(double pitch, double yaw, double roll)
+{
+	vector4 new_x, new_y, new_z;
+	
+	new_x = cos(pitch)*(cos(yaw)*basis[0] - sin(yaw)*basis[1]) + sin(pitch)*basis[2];
+	new_y = cos(yaw)*basis[1] + sin(yaw)*basis[0];
+	new_z = cos(pitch)*basis[2] - sin(pitch)*(cos(yaw)*basis[0] - sin(yaw)*basis[1]);
+	
+	basis[0] = new_x;
+	basis[1] = cos(roll)*new_y + sin(roll)*new_z;
+	basis[2] = cos(roll)*new_z - sin(roll)*new_y;
+}
+
+void Entity::propagate(double step)
+{
+	Particle::propagate(step);
+	force[0] = force[1] = force[2] = 0.0;
+	angvel[0] = angvel[1] = angvel[2] = 0.0;
 }
 
