@@ -16,7 +16,7 @@
  */
 class Entity : public Particle
 {
-	Point p;
+protected:
 	vector4 basis[3]; //local basis
 	Manifold* m;
 	

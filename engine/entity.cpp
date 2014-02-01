@@ -227,5 +227,6 @@ void Entity::propagate(double step)
 	Particle::propagate(step);
 	force[0] = force[1] = force[2] = 0.0;
 	angvel[0] = angvel[1] = angvel[2] = 0.0;
+	orthonormalize();
 }
 
